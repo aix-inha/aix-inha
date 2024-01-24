@@ -3,9 +3,7 @@ title: API Reference
 
 language_tabs: # must be one of https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers
   - shell
-  - ruby
   - python
-  - javascript
 
 toc_footers:
   - <a href='https://aix.inha.ac.kr/'>인하대학교 인공지능융합연구센터</a>
@@ -50,12 +48,6 @@ Simple Linux Utility for Resource Management (이하 “Slurm”) 을 통해 GPU
 
 > To authorize, use this code:
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
 ```python
 import kittn
 
@@ -68,11 +60,6 @@ curl "api_endpoint_here" \
   -H "Authorization: meowmeowmeow"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
 
 > Make sure to replace `meowmeowmeow` with your API key.
 
@@ -92,8 +79,6 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 사용자는 부여된 ID와 PW를 사용하여 SSH 연결을 통해 Login Node-1에 접속한 후, Slurm 시스템에게 GPU 자원 할당을 신청 할 수 있습니다.
 <br/> SSH 연결은 Windows PowerShell, Ubuntu Terminal, MobaXterm 등 프로그램을 통해 사용 할 수 있습니다.
 ```shell
-require 'shell'
-
 ssh "yourID"@165.246.75.159
 ```
 ## File Uploads
