@@ -43,8 +43,9 @@ AI 센터에서는 11개의 GPU 서버 (56 GPUs) 를 제공하고 있습니다.
 ### System Overview
 Simple Linux Utility for Resource Management (이하 “Slurm”) 을 통해 GPU 자원을 제공하고 있습니다. Slurm은 클러스터 환경의 자원 관리 시스템으로, 사용자의 요청에 컴퓨팅 자원을 할당합니다.  
 <br/> 사용자는 자원을 할당 받은 후, Conda와 Singularity 컨테이너 솔루션을 통해 사용자가 원하는 개발 환경에서 컴퓨팅 자원을 사용 할 수 있습니다.
-#### 자원이 모두 사용 중일 때는 대기를 해야하며, 자원이 확보될 시 Slurm이 대기하고 있던 사용자에게 할당해줍니다. <br/>
-#### 12시간 이상 GPU 사용이 없을 시 작업이 취소 될 수 있습니다.
+
+자원이 모두 사용 중일 때는 대기를 해야하며, 자원이 확보될 시 Slurm이 대기하고 있던 사용자에게 할당해줍니다. <br/>
+12시간 이상 GPU 사용이 없을 시 작업이 취소 될 수 있습니다.
 
 > To authorize, use this code:
 
@@ -78,6 +79,8 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 ## SSH Login
 사용자는 부여된 ID와 PW를 사용하여 SSH 연결을 통해 Login Node-1에 접속한 후, Slurm 시스템에게 GPU 자원 할당을 신청 할 수 있습니다.
 <br/> SSH 연결은 Windows PowerShell, Ubuntu Terminal, MobaXterm 등 프로그램을 통해 사용 할 수 있습니다.
+
+>
 ```shell
 ssh "yourID"@165.246.75.159
 ```
