@@ -395,7 +395,10 @@
 <h3 id='system-overview'>System Overview</h3>
 <p>Simple Linux Utility for Resource Management (이하 “Slurm”) 을 통해 GPU 자원을 제공하고 있습니다. Slurm은 클러스터 환경의 자원 관리 시스템으로, 사용자의 요청에 컴퓨팅 자원을 할당합니다.<br>
 <br/> 사용자는 자원을 할당 받은 후, Conda와 Singularity 컨테이너 솔루션을 통해 사용자가 원하는 개발 환경에서 컴퓨팅 자원을 사용 할 수 있습니다.</p>
-<h4 id='slurm'>자원이 모두 사용 중일 때는 대기를 해야하며, 자원이 확보될 시 Slurm이 대기하고 있던 사용자에게 할당해줍니다. <br/></h4><h4 id='12-gpu'>12시간 이상 GPU 사용이 없을 시 작업이 취소 될 수 있습니다.</h4>
+
+<p>자원이 모두 사용 중일 때는 대기를 해야하며, 자원이 확보될 시 Slurm이 대기하고 있던 사용자에게 할당해줍니다. <br/>
+12시간 이상 GPU 사용이 없을 시 작업이 취소 될 수 있습니다.</p>
+
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
@@ -421,11 +424,12 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
 <h1 id='how-to-use'>How to use</h1><h2 id='ssh-login'>SSH Login</h2>
 <p>사용자는 부여된 ID와 PW를 사용하여 SSH 연결을 통해 Login Node-1에 접속한 후, Slurm 시스템에게 GPU 자원 할당을 신청 할 수 있습니다.
-<br/> SSH 연결은 Windows PowerShell, Ubuntu Terminal, MobaXterm 등 프로그램을 통해 사용 할 수 있습니다.
-<code>shell
-ssh &quot;yourID&quot;@165.246.75.159
-</code></p>
-<h2 id='file-uploads'>File Uploads</h2>
+<br/> SSH 연결은 Windows PowerShell, Ubuntu Terminal, MobaXterm 등 프로그램을 통해 사용 할 수 있습니다.</p>
+
+<blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>ssh <span class="s2">"yourID"</span>@165.246.75.159
+</code></pre></div><h2 id='file-uploads'>File Uploads</h2></blockquote>
+
 <p>This endpoint retrieves all kittens.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET http://example.com/api/kittens</code></p>
