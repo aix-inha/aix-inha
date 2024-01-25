@@ -352,7 +352,18 @@
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#4adb650424" class="toc-h1 toc-link" data-title="사용정책">사용정책</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#d085b4587e" class="toc-h2 toc-link" data-title="파티션 정책">파티션 정책</a>
+                  </li>
+                  <li>
+                    <a href="#07970efef4" class="toc-h2 toc-link" data-title="컴퓨팅 자원 정책">컴퓨팅 자원 정책</a>
+                  </li>
+                  <li>
+                    <a href="#f127a65f44" class="toc-h2 toc-link" data-title="로컬 디스크 사용 정책">로컬 디스크 사용 정책</a>
+                  </li>
+              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -524,65 +535,95 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The ID of the kitten to delete</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
-
+<h1 id='4adb650424'>사용정책</h1><h2 id='d085b4587e'>파티션 정책</h2>
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>구분</th>
+<th>Class A, 참여교수</th>
+<th>Class B, 교내교수</th>
+<th>Class C, 외부 사용자</th>
+<th>비고</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td>A100-1</td>
+<td>O</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>A100-2</td>
+<td>O</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>A100-3</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+<td></td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>A100-4</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+<td></td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td>A6000-1</td>
+<td>O</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+<td>A6000-2</td>
+<td>O</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
+<td>A6000-3</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+<td></td>
 </tr>
 <tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
+<td>A6000-4</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+<td></td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>A40-1</td>
+<td>O</td>
+<td></td>
+<td></td>
+<td>LocalDisk 권장</td>
 </tr>
 <tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+<td>A40-2</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+<td>LocalDisk 권장</td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>A40-3</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+<td>LocalDisk 권장</td>
 </tr>
 </tbody></table>
-
+<h2 id='07970efef4'>컴퓨팅 자원 정책</h2><h2 id='f127a65f44'>로컬 디스크 사용 정책</h2>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
