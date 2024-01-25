@@ -27,8 +27,7 @@ meta:
 <br/>작성된 튜토리얼을 통해 원활한 사용과 연구에 도움이 되기를 진심으로 바라겠습니다.
 
 <aside class="notice">
-AI 센터의 자원을 이용하시려면 먼저 [인하대학교 인공지능융합연구센터 홈페이지](https://aix.inha.ac.kr/)를 통해 계정을 신청하시기 바랍니다. <br/>
-계정 승인 후, 개인별 혹은 팀별로 할당된 자원을 이용하실 수 있습니다.
+AI 센터의 자원을 이용하시려면 먼저 [인하대학교 인공지능융합연구센터 홈페이지](https://aix.inha.ac.kr/)를 통해 계정을 신청하시기 바랍니다.
 </aside>
 
 공지 수신 및 기술적인 문제나 사용법에 대한 질문이 있으시면, [디스코드 채널](https://discord.gg/PyBkTDz4Mp)에 입장하여 연락주시기 바랍니다.
@@ -52,7 +51,8 @@ AI 센터에서는 11개의 GPU 서버 (56 GPUs) 를 제공하고 있습니다.
 
 
 # 사용 방법
-### GPU 서버 사용 절차는 다음과 같습니다:
+### 사용 절차:
+GPU 서버 사용 과정은 아래와 같습니다:<br/>
 SSH 로그인을 통한 서버 접속 (Login Node) -> 코드 및 데이터 업로드 -> GPU 자원 신청 -> (환경 구축) -> GPU 사용
 
 
@@ -72,9 +72,6 @@ ssh "yourID"@165.246.75.159
 파일 업로드는 GPU 자원을 할당 받지 않고도 가능하며, 로컬 디스크 사용의 경우 CPU 자원만을 할당받아 하시면 됩니다.
 
 ## 자원 신청
-로그인을 한 후, 명령어로 GPU 할당 요청이 가능합니다.
-srun --gres=gpu:<type>:<number> -p <partition> --time=<time> -J <jobname> --cpus-per-core <int> --pty bash
-
 > 파티션 p1의 사용자가 A100 GPU 2개를 1일 동안 요청하기
 
 ```shell
@@ -90,6 +87,11 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 ```shell
 sacctmgr show assoc format=User,Partition where user=`whoami`
 ```
+
+로그인을 한 후, 명령어로 GPU 할당 요청이 가능합니다.
+srun --gres=gpu:<type>:<number> -p <partition> --time=<time> -J <jobname> --cpus-per-core <int> --pty bash
+
+
 
 ## 개발 환경 구축
 현재 GPU 서버에서는 miniconda 환경과 singularity 환경을 지원하고 있습니다.
