@@ -315,27 +315,30 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            <a href="#fa255f0ccc" class="toc-h1 toc-link" data-title="소개">소개</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#system-overview" class="toc-h2 toc-link" data-title="System Overview">System Overview</a>
                   </li>
                   <li>
-                    <a href="#available-gpus" class="toc-h2 toc-link" data-title="Available GPUs">Available GPUs</a>
+                    <a href="#gpu" class="toc-h2 toc-link" data-title="GPU 보유 현황">GPU 보유 현황</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#how-to-use" class="toc-h1 toc-link" data-title="How to use">How to use</a>
+            <a href="#6772c593e8" class="toc-h1 toc-link" data-title="사용 방법">사용 방법</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#ssh-login" class="toc-h2 toc-link" data-title="SSH Login">SSH Login</a>
+                    <a href="#gpu-2" class="toc-h2 toc-link" data-title="GPU 서버 사용 절차는 다음과 같습니다:">GPU 서버 사용 절차는 다음과 같습니다:</a>
+                  </li>
+                  <li>
+                    <a href="#gpu-3" class="toc-h2 toc-link" data-title="GPU 서버 접속">GPU 서버 접속</a>
+                  </li>
+                  <li>
+                    <a href="#08e9b81abe" class="toc-h2 toc-link" data-title="코드 및 데이터 업로드">코드 및 데이터 업로드</a>
                   </li>
                   <li>
                     <a href="#c4d1c3a567" class="toc-h2 toc-link" data-title="자원 신청">자원 신청</a>
-                  </li>
-                  <li>
-                    <a href="#file-uploads" class="toc-h2 toc-link" data-title="File Uploads">File Uploads</a>
                   </li>
                   <li>
                     <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
@@ -357,12 +360,13 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
+        <h1 id='fa255f0ccc'>소개</h1>
 <p>인하대학교 인공지능융합연구센터 (이하 ”AI 센터”)에 오신 것을 환영합니다. 저희 AI 센터는 최첨단 GPU 서버 센터를 구축하여 A100, A6000, A40 등의 고성능 컴퓨팅 자원을 인하대학교 학생 및 교수님들, 그리고 기업체 및 인천시민 여러분께 무상으로 제공하고 있습니다. 이를 통해 인공지능 연구와 개발에 필요한 모든 고성능 계산 작업을 지원하고자 합니다.
-<br/>작성된 튜토리얼을 통해 원활한 사용과 연구에 도움이 되기를 진심으로 바라겠습니다. 감사합니다.</p>
+<br/>작성된 튜토리얼을 통해 원활한 사용과 연구에 도움이 되기를 진심으로 바라겠습니다.</p>
 
 <aside class="notice">
-AI 센터의 자원을 이용하시려면 먼저 인하대학교 인공지능융합연구센터 홈페이지를 통해 계정을 신청하시기 바랍니다. 계정 승인 후, 개인별 혹은 팀별로 할당된 자원을 이용하실 수 있습니다.
+AI 센터의 자원을 이용하시려면 먼저 [인하대학교 인공지능융합연구센터 홈페이지](https://aix.inha.ac.kr/)를 통해 계정을 신청하시기 바랍니다. <br/>
+계정 승인 후, 개인별 혹은 팀별로 할당된 자원을 이용하실 수 있습니다.
 </aside>
 
 <p>공지 수신 및 기술적인 문제나 사용법에 대한 질문이 있으시면, <a href="https://discord.gg/PyBkTDz4Mp">디스코드 채널</a>에 입장하여 연락주시기 바랍니다.
@@ -373,7 +377,7 @@ AI 센터의 자원을 이용하시려면 먼저 인하대학교 인공지능융
 
 <p>자원이 모두 사용 중일 때는 대기를 해야하며, 자원이 확보될 시 Slurm이 대기하고 있던 사용자에게 할당해줍니다. <br/>
 12시간 이상 GPU 사용이 없을 시 작업이 취소 될 수 있습니다.</p>
-<h3 id='available-gpus'>Available GPUs</h3>
+<h3 id='gpu'>GPU 보유 현황</h3>
 <p>AI 센터에서는 11개의 GPU 서버 (56 GPUs) 를 제공하고 있습니다. </p>
 
 <table><thead>
@@ -403,23 +407,42 @@ AI 센터의 자원을 이용하시려면 먼저 인하대학교 인공지능융
 <td>4</td>
 </tr>
 </tbody></table>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='how-to-use'>How to use</h1><h2 id='ssh-login'>SSH Login</h2>
+<h1 id='6772c593e8'>사용 방법</h1><h3 id='gpu-2'>GPU 서버 사용 절차는 다음과 같습니다:</h3>
+<p>SSH 로그인을 통한 서버 접속 (Login Node) -&gt; 코드 및 데이터 업로드 -&gt; GPU 자원 신청 -&gt; (환경 구축) -&gt; GPU 사용</p>
+<h2 id='gpu-3'>GPU 서버 접속</h2>
 <blockquote>
-<p>&quot;yourID&quot;를 본인의 ID로 입력하여 SSH 연결하시길 바랍니다.
-<code>shell
-ssh &quot;yourID&quot;@165.246.75.159
-</code></p>
+<p>&quot;yourID&quot;를 본인의 ID로 입력하여 SSH 연결하시길 바랍니다.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>ssh <span class="s2">"yourID"</span>@165.246.75.159
+</code></pre></div>
+<p>사용자는 SSH 연결을 통해 Login Node 에 접속한 후, Slurm 시스템에게 GPU 자원 할당을 신청 할 수 있습니다.
+<br/> SSH 연결은 Windows PowerShell, Ubuntu Terminal, MobaXterm 등 프로그램을 통해 사용 할 수 있습니다.</p>
+<h2 id='08e9b81abe'>코드 및 데이터 업로드</h2>
+<p>파일 업로드는 본인 계정의 이름으로 된 폴더에 할 수 있습니다.<br/>
+파일 업로드는 GPU 자원을 할당 받지 않고도 가능하며, 로컬 디스크 사용의 경우 CPU 자원만을 할당받아 하시면 됩니다.</p>
+<h2 id='c4d1c3a567'>자원 신청</h2>
+<p>로그인을 한 후, 명령어로 GPU 할당 요청이 가능합니다.
+srun --gres=gpu:<type>:<number> -p <partition> --time=<time> -J <jobname> --cpus-per-core <int> --pty bash</p>
+
+<blockquote>
+<p>파티션 p1의 사용자가 A100 GPU 2개를 1일 동안 요청하기</p>
 </blockquote>
 
-<p>사용자는 부여된 ID와 PW를 사용하여 SSH 연결을 통해 Login Node-1에 접속한 후, Slurm 시스템에게 GPU 자원 할당을 신청 할 수 있습니다.
-<br/> SSH 연결은 Windows PowerShell, Ubuntu Terminal, MobaXterm 등 프로그램을 통해 사용 할 수 있습니다.</p>
-<h2 id='c4d1c3a567'>자원 신청</h2><h2 id='file-uploads'>File Uploads</h2>
-<p>파일 업로드는 본인 계정의 이름으로 된 폴더에 할 수 있습니다.<br/>
-파일 업로드는 GPU 자원을 할당 받지 않고도 가능하며,</p>
+<p>&#39;&#39;&#39;shell
+srun --gres=gpu:a100:2 -p p1 --time=1-00:00:00 -J cv_lab1 --cpus-per-task=20 --pty bash
+&#39;&#39;&#39;</p>
+
+<aside class="notice">
+GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
+</aside>
+
+<blockquote>
+<p>먼저 명령어로 자신의 파티션을 확인하기 (주의: `는 &#39; 와 다름)</p>
+</blockquote>
+
+<p>&#39;&#39;&#39;shell
+sacctmgr show assoc format=User,Partition where user=<code>whoami</code>
+&#39;&#39;&#39;</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET http://example.com/api/kittens</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
