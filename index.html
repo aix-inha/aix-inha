@@ -438,7 +438,7 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>srun <span class="nt">--gres</span><span class="o">=</span>gpu:a100:2 <span class="nt">-p</span> p1 <span class="nt">--time</span><span class="o">=</span>1-00:00:00 <span class="nt">-J</span> cv_lab1 <span class="nt">--cpus-per-task</span><span class="o">=</span>20 <span class="nt">--pty</span> bash
 </code></pre></div>
-<p>로그인을 한 후, 명령어로 GPU 할당 요청이 가능합니다.
+<p>로그인을 한 후, 명령어로 GPU 할당 요청이 가능합니다.<br/>
 <code>srun --gres=gpu:&lt;type&gt;:&lt;number&gt; -p &lt;partition&gt; --time=&lt;time&gt; -J &lt;jobname&gt; --cpus-per-core &lt;int&gt; --pty bash</code></p>
 <h2 id='a6aa210ad3'>개발 환경 구축</h2>
 <p>현재 GPU 서버에서는 miniconda 환경과 singularity 환경을 지원하고 있습니다.
