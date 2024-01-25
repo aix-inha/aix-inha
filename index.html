@@ -341,6 +341,9 @@
                     <a href="#c4d1c3a567" class="toc-h2 toc-link" data-title="자원 신청">자원 신청</a>
                   </li>
                   <li>
+                    <a href="#a6aa210ad3" class="toc-h2 toc-link" data-title="개발 환경 구축">개발 환경 구축</a>
+                  </li>
+                  <li>
                     <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
                   </li>
                   <li>
@@ -427,11 +430,8 @@ srun --gres=gpu:<type>:<number> -p <partition> --time=<time> -J <jobname> --cpus
 <blockquote>
 <p>파티션 p1의 사용자가 A100 GPU 2개를 1일 동안 요청하기</p>
 </blockquote>
-
-<p>&#39;&#39;&#39;shell
-srun --gres=gpu:a100:2 -p p1 --time=1-00:00:00 -J cv_lab1 --cpus-per-task=20 --pty bash
-&#39;&#39;&#39;</p>
-
+<div class="highlight"><pre class="highlight shell tab-shell"><code>srun <span class="nt">--gres</span><span class="o">=</span>gpu:a100:2 <span class="nt">-p</span> p1 <span class="nt">--time</span><span class="o">=</span>1-00:00:00 <span class="nt">-J</span> cv_lab1 <span class="nt">--cpus-per-task</span><span class="o">=</span>20 <span class="nt">--pty</span> bash
+</code></pre></div>
 <aside class="notice">
 GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 </aside>
@@ -439,10 +439,11 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 <blockquote>
 <p>먼저 명령어로 자신의 파티션을 확인하기 (주의: `는 &#39; 와 다름)</p>
 </blockquote>
-
-<p>&#39;&#39;&#39;shell
-sacctmgr show assoc format=User,Partition where user=<code>whoami</code>
-&#39;&#39;&#39;</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>sacctmgr show assoc <span class="nv">format</span><span class="o">=</span>User,Partition where <span class="nv">user</span><span class="o">=</span><span class="sb">`</span><span class="nb">whoami</span><span class="sb">`</span>
+</code></pre></div><h2 id='a6aa210ad3'>개발 환경 구축</h2>
+<p>현재 GPU 서버에서는 miniconda 환경과 singularity 환경을 지원하고 있습니다.
+miniconda 
+singulairty</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET http://example.com/api/kittens</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
