@@ -77,9 +77,9 @@ srun --gres=gpu:<type>:<number> -p <partition> --time=<time> -J <jobname> --cpus
 
 > 파티션 p1의 사용자가 A100 GPU 2개를 1일 동안 요청하기
 
-'''shell
+```shell
 srun --gres=gpu:a100:2 -p p1 --time=1-00:00:00 -J cv_lab1 --cpus-per-task=20 --pty bash
-'''
+```
 
 <aside class="notice">
 GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
@@ -87,10 +87,14 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 
 > 먼저 명령어로 자신의 파티션을 확인하기 (주의: `는 ' 와 다름)
 
-'''shell
+```shell
 sacctmgr show assoc format=User,Partition where user=`whoami`
-'''
+```
 
+## 개발 환경 구축
+현재 GPU 서버에서는 miniconda 환경과 singularity 환경을 지원하고 있습니다.
+miniconda 
+singulairty
 
 ### HTTP Request
 
