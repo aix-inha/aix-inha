@@ -72,24 +72,24 @@ ssh "yourID"@165.246.75.159
 파일 업로드는 GPU 자원을 할당 받지 않고도 가능하며, 로컬 디스크 사용의 경우 CPU 자원만을 할당받아 하시면 됩니다.
 
 ## 자원 신청
-> 파티션 p1의 사용자가 A100 GPU 2개를 1일 동안 요청하기
-
-```shell
-srun --gres=gpu:a100:2 -p p1 --time=1-00:00:00 -J cv_lab1 --cpus-per-task=20 --pty bash
-```
-
-<aside class="notice">
-GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
-</aside>
-
 > 먼저 명령어로 자신의 파티션을 확인하기 (주의: `는 ' 와 다름)
 
 ```shell
 sacctmgr show assoc format=User,Partition where user=`whoami`
 ```
 
+<aside class="notice">
+GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
+</aside>
+
+> 파티션 p1의 사용자가 A100 GPU 2개를 1일 동안 요청하기
+
+```shell
+srun --gres=gpu:a100:2 -p p1 --time=1-00:00:00 -J cv_lab1 --cpus-per-task=20 --pty bash
+```
+
 로그인을 한 후, 명령어로 GPU 할당 요청이 가능합니다.
-srun --gres=gpu:<type>:<number> -p <partition> --time=<time> -J <jobname> --cpus-per-core <int> --pty bash
+`srun --gres=gpu:<type>:<number> -p <partition> --time=<time> -J <jobname> --cpus-per-core <int> --pty bash`
 
 
 
