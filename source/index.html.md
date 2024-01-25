@@ -88,7 +88,7 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 srun --gres=gpu:a100:2 -p p1 --time=1-00:00:00 -J cv_lab1 --cpus-per-task=20 --pty bash
 ```
 
-로그인을 한 후, 명령어로 GPU 할당 요청이 가능합니다.
+로그인을 한 후, 명령어로 GPU 할당 요청이 가능합니다.<br/>
 `srun --gres=gpu:<type>:<number> -p <partition> --time=<time> -J <jobname> --cpus-per-core <int> --pty bash`
 
 
