@@ -50,30 +50,6 @@ AI 센터에서는 11개의 GPU 서버 (56 GPUs) 를 제공하고 있습니다.
 | A6000    | 48 GB      | 4                     | 4             |
 
 
-
-> To authorize, use this code:
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here" \
-  -H "Authorization: meowmeowmeow"
-```
-
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
 <aside class="notice">
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
@@ -81,18 +57,22 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 # How to use
 
 ## SSH Login
-사용자는 부여된 ID와 PW를 사용하여 SSH 연결을 통해 Login Node-1에 접속한 후, Slurm 시스템에게 GPU 자원 할당을 신청 할 수 있습니다.
-<br/> SSH 연결은 Windows PowerShell, Ubuntu Terminal, MobaXterm 등 프로그램을 통해 사용 할 수 있습니다.
-
 > "yourID"를 본인의 ID로 입력하여 SSH 연결하시길 바랍니다.
-
 ```shell
 ssh "yourID"@165.246.75.159
 ```
 
-## File Uploads
 
-This endpoint retrieves all kittens.
+사용자는 부여된 ID와 PW를 사용하여 SSH 연결을 통해 Login Node-1에 접속한 후, Slurm 시스템에게 GPU 자원 할당을 신청 할 수 있습니다.
+<br/> SSH 연결은 Windows PowerShell, Ubuntu Terminal, MobaXterm 등 프로그램을 통해 사용 할 수 있습니다.
+
+
+## 자원 신청
+
+
+## File Uploads
+파일 업로드는 본인 계정의 이름으로 된 폴더에 할 수 있습니다.<br/>
+파일 업로드는 GPU 자원을 할당 받지 않고도 가능하며,
 
 ### HTTP Request
 
