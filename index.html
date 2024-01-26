@@ -344,13 +344,13 @@
                     <a href="#a6aa210ad3" class="toc-h2 toc-link" data-title="개발 환경 구축">개발 환경 구축</a>
                   </li>
                   <li>
-                    <a href="#miniconda" class="toc-h2 toc-link" data-title="miniconda 환경 설정하기">miniconda 환경 설정하기</a>
+                    <a href="#miniconda" class="toc-h2 toc-link" data-title="miniconda 환경 설정">miniconda 환경 설정</a>
                   </li>
                   <li>
-                    <a href="#jupyter-notebook" class="toc-h2 toc-link" data-title="Jupyter notebook 실행방법">Jupyter notebook 실행방법</a>
+                    <a href="#jupyter-notebook" class="toc-h2 toc-link" data-title="Jupyter notebook 실행">Jupyter notebook 실행</a>
                   </li>
                   <li>
-                    <a href="#singulairty" class="toc-h2 toc-link" data-title="singulairty">singulairty</a>
+                    <a href="#singulairty-container" class="toc-h2 toc-link" data-title="singulairty Container 활용">singulairty Container 활용</a>
                   </li>
                   <li>
                     <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
@@ -462,7 +462,7 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 <code>srun --gres=gpu:&lt;type&gt;:&lt;number&gt; -p &lt;partition&gt; --time=&lt;time&gt; -J &lt;jobname&gt; --cpus-per-core &lt;int&gt; --pty bash</code></p>
 <h2 id='a6aa210ad3'>개발 환경 구축</h2>
 <p>현재 GPU 서버에서는 miniconda 환경과 singularity 환경을 지원하고 있습니다.</p>
-<h2 id='miniconda'>miniconda 환경 설정하기</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># 설치 파일을 다운로드할 경로로 이동(to home directory)</span>
+<h2 id='miniconda'>miniconda 환경 설정</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># 설치 파일을 다운로드할 경로로 이동(to home directory)</span>
 <span class="nb">cd</span> ~
 
 <span class="c"># Miniconda 설치 파일 다운로드</span>
@@ -487,7 +487,7 @@ vi ~/.bashrc
 <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>~/miniconda3/bin:<span class="nv">$PATH</span>
 <span class="c">#환경변수 설정 반영</span>
 <span class="nb">source</span> ~/.bashrc
-</code></pre></div><h2 id='jupyter-notebook'>Jupyter notebook 실행방법</h2>
+</code></pre></div><h2 id='jupyter-notebook'>Jupyter notebook 실행</h2>
 <p>할당받은 GPU 노드에서 IP를 알아 낸 후, jupyter notebook을 웹에 띄웁니다.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c">#다음 명령어 수행후, inet 165.246.***.*** 부분의 ip주소를 복사</span>
 ifconfig
@@ -495,7 +495,7 @@ ifconfig
 jupyter-notebook <span class="nt">--no-browser</span> <span class="nt">--ip</span><span class="o">=</span>&lt;165.246.<span class="k">***</span>.<span class="k">***</span><span class="o">&gt;</span> <span class="nt">--port</span><span class="o">=</span>&lt;port number&gt;
 </code></pre></div>
 <aside class="warning">만약 port 번호를 10100으로 설정했는데 실행이 안될경우, ⭐숫자를 1씩 증가시켜가며⭐ 실행되는 port 번호를 사용하면 됩니다. 만약 모든 포트번호를 사용했는데 실행이 안되는 경우, 아래의 연락처로 연락주시면 감사하겠습니다.<br>문의처: 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr, 032-860-9472) </aside>
-<h2 id='singulairty'>singulairty</h2>
+<h2 id='singulairty-container'>singulairty Container 활용</h2>
 <aside class="notice">
 도커 이미지를 Singularity 이미지로 간편하게 변환하여 사용할 수 있습니다.
 </aside>
@@ -523,17 +523,28 @@ singularity <span class="nb">exec</span> <span class="nt">--nv</span> /shared/pu
 <ol>
 <li><p>Docker 이미지 선택 : Docker hub에서 변환하고자 하는 Dokcer image의 url을 찾습니다.
 <br> 이때, 본인이 원하는 이미지가 docker hub에 없다면 업로드 할 수 있습니다(회원가입 필요).
+<br>
 <br> - docker hub 접속 (<a href="https://hub.docker.com/">https://hub.docker.com/</a>)
 <br><img src="images/docker_p1-59e4da44.png" width="550px" height="300px" title="docker 홈페이지" alt="Docker homepage"></img>
+<br>
 <br> - 원하는 docker Image 검색  ( ※본인의 이미지를 docker hub에 올릴 수 있습니다※)
-<br><img src="images/docker_p2-984e084e.png" width="550px" height="300px" title="docker 홈페이지" alt="Docker homepage"></img>
+<br><img src="images/docker_p2-984e084e.png" width="550px" height="300px" title="docker image list" alt="Docker image list"></img>
+<br>
 <br> - 원하는 도커 이미지 선택
-<br><img src="images/docker_p3-4172b1c9.png" width="550px" height="300px" title="docker 홈페이지" alt="Docker homepage"></img></p></li>
+<br><img src="images/docker_p3-4172b1c9.png" width="550px" height="300px" title="docker hash name" alt="Docker hash name"></img></p></li>
 <li><p>Terminal로 복귀 및 변환 명령어 실행
 <br>예) <code>singularity build ~/my_cuda_image.sif docker://pytorch/pytorch:1.9.1-cuda11.1-cudnn8-devel</code></p></li>
-<li><p>singularity build시, 시간이 오래걸릴 수 있습니다. 또한 singularity image파일을 저장할 경우 꼭 본인 계정의 home directory에 저장할 것을 부탁드립니다. (~/파일이름.sif) 
-<br><strong>/shared/public/images에 하지 않기</strong></p></li>
 </ol>
+
+<ul>
+<li>singularity build시, 시간이 오래걸릴 수 있습니다. 또한 singularity image파일을 저장할 경우 꼭 본인 계정의 home directory에 저장할 것을 부탁드립니다. (~/파일이름.sif) 
+<br><strong>/shared/public/images에 하지 않기</strong></li>
+</ul>
+<h3 id='docker-singularity-sif'>Docker 이미지를 Singularity SIF로 변환하기 - 로컬 이미지 사용편</h3>
+<ul>
+<li>Docker 이미지 저장</li>
+<li>Singularity 명령어 실행</li>
+</ul>
 <h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
