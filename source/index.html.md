@@ -159,14 +159,15 @@ jupyter-notebook --no-browser --ip=<165.246.***.***> --port=<port number>
 ### sif이미지를 사용해서 singularity container 실행
 우측 코드를 참조하여 실행
 
+> 공용폴더(/shared/public/images)로 이동
 ```shell
-#공용폴더(/shared/public/images)로 이동
 cd /shared/public/images
 
 #공용폴더에서 사용할 Singularity 이미지(.sif)를 확인
 ls
-
-# 원하는 이미지가 있고, 이를 사용하려면 다음 명령어 실행
+```
+> 원하는 이미지가 있고, 이를 사용하려면 다음 명령어 실행
+```shell
 singularity exec --nv /shared/public/images/<imagefile name> bash
 
 #만약 이미지를 jupyter notebook으로 실행시키고 싶다면
