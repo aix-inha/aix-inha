@@ -140,21 +140,34 @@ jupyter-notebook --no-browser --ip=<165.246.***.***> --port=<port number>
 <aside class="warning">만약 port 번호를 10100으로 설정했는데 실행이 안될경우, ⭐숫자를 1씩 증가시켜가며⭐ 실행되는 port 번호를 사용하면 됩니다. 만약 모든 포트번호를 사용했는데 실행이 안되는 경우, 아래의 연락처로 연락주시면 감사하겠습니다.<br>문의처: 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr, 032-860-9472) </aside>
 
 ## singulairty
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="notice">
+도커 이미지를 Singularity 이미지로 간편하게 변환하여 사용할 수 있습니다.
 </aside>
+
+### sif이미지를 사용해서 singularity container 실행
+<aside class="warning">
+<code>/shared/public/images</code> 경로에 Singularirty 이미지를 저장하지 마세요.
+본인계정의 home 경로에 저장하시길 부탁드립니다.
+</aside>
+
+```shell
+#공용폴더(/shared/public/images)로 이동
+cd /shared/public/images
+
+#공용폴더에서 사용할 Singularity 이미지(.sif)를 확인
+ls
+
+# 원하는 이미지가 있고, 이를 사용하려면 다음 명령어 실행
+singularity exec --nv /shared/public/images/<imagefile name> bash
+
+#만약 이미지를 jupyter notebook으로 실행시키고 싶다면
+singularity exec --nv /shared/public/images/<imagefile name> jupyter notebook --no-browser --ip=<위에서 복사한 ip주소> --port=<위에서 설정한 포트번호>
+
+#singularity Container의 사용을 중단하고 싶다면
+exit
+```
+
+### Docker 이미지를 Singularity SIF로 변환하기 - Docker Hub 사용편
 
 ## Get a Specific Kitten
 
