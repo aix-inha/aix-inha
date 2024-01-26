@@ -172,8 +172,17 @@ exit
 
 1. Docker 이미지 선택 : Docker hub에서 변환하고자 하는 Dokcer image의 url을 찾습니다.
 <br> 이때, 본인이 원하는 이미지가 docker hub에 없다면 업로드 할 수 있습니다(회원가입 필요).
-<br> - docker hub 접속 (https://hub.docker.com/)
-<br><img src="/source/images/docker_p1.png" width="450px" height="300px" title="docker 홈페이지" alt="Docker homepage"></img>
+<br> - docker hub 접속 (<https://hub.docker.com/>)
+<br><img src="./images/docker_p1.png" width="550px" height="300px" title="docker 홈페이지" alt="Docker homepage"></img>
+<br> - 원하는 docker Image 검색  ( ※본인의 이미지를 docker hub에 올릴 수 있습니다※)
+<br><img src="./images/docker_p2.png" width="550px" height="300px" title="docker 홈페이지" alt="Docker homepage"></img>
+<br> - 원하는 도커 이미지 선택
+<br><img src="./images/docker_p3.png" width="550px" height="300px" title="docker 홈페이지" alt="Docker homepage"></img>
+
+2. Terminal로 복귀 및 변환 명령어 실행
+<br>예) <code>singularity build ~/my_cuda_image.sif docker://pytorch/pytorch:1.9.1-cuda11.1-cudnn8-devel</code>
+- singularity build시, 시간이 오래걸릴 수 있습니다. 또한 singularity image파일을 저장할 경우 꼭 본인 계정의 home directory에 저장할 것을 부탁드립니다. (~/파일이름.sif) 
+<br>**/shared/public/images에 하지 않기**
 
 ## Get a Specific Kitten
 
