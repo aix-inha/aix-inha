@@ -6,7 +6,7 @@ language_tabs: # must be one of https://github.com/rouge-ruby/rouge/wiki/List-of
   - python
 
 toc_footers:
-  - <a href='https://aix.inha.ac.kr/'>인하대학교 인공지능융합연구센터</a>
+  - <a href='https://aix.inha.ac.kr/' target="_blank">인하대학교 인공지능융합연구센터</a>
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -147,10 +147,6 @@ jupyter-notebook --no-browser --ip=<165.246.***.***> --port=<port number>
 
 ### sif이미지를 사용해서 singularity container 실행
 우측 코드를 참조하여 실행
-<aside class="warning">
-<code>/shared/public/images</code> 경로에 Singularirty 이미지를 저장하지 마세요.
-본인계정의 home 경로에 저장하시길 부탁드립니다.
-</aside>
 
 ```shell
 #공용폴더(/shared/public/images)로 이동
@@ -168,6 +164,10 @@ singularity exec --nv /shared/public/images/<imagefile name> jupyter notebook --
 #singularity Container의 사용을 중단하고 싶다면
 exit
 ```
+<aside class="warning">
+<code>/shared/public/images</code> 경로에 Singularirty 이미지를 저장하지 마세요.
+본인계정의 home 경로에 저장하시길 부탁드립니다.
+</aside>
 
 ### Docker 이미지를 Singularity SIF로 변환하기 - Docker Hub 사용편
 
