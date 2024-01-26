@@ -439,7 +439,7 @@ SSH 로그인을 통한 서버 접속 (Login Node) -&gt; 코드 및 데이터 �
 <div class="highlight"><pre class="highlight shell tab-shell"><code>ssh <span class="s2">"yourID"</span>@165.246.75.159
 </code></pre></div>
 <p>사용자는 SSH 연결을 통해 Login Node 에 접속한 후, Slurm 시스템에게 GPU 자원 할당을 신청 할 수 있습니다.
-<br/> SSH 연결은 Windows PowerShell, Ubuntu Terminal, MobaXterm 등 프로그램을 통해 사용 할 수 있습니다.</p>
+<br/> SSH 연결은 Windows PowerShell, Ubuntu Terminal, MobaXterm 등의 프로그램을 통해 사용 할 수 있습니다.</p>
 <h2 id='08e9b81abe'>코드 및 데이터 업로드</h2>
 <p>파일 업로드는 본인 계정의 이름으로 된 폴더에 할 수 있습니다.<br/>
 파일 업로드는 GPU 자원을 할당 받지 않고도 가능하며, 로컬 디스크 사용의 경우 CPU 자원만을 할당받아 하시면 됩니다.</p>
@@ -457,6 +457,16 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 <p>파티션 p1의 사용자가 A100 GPU 2개를 1일 동안 요청하기</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>srun <span class="nt">--gres</span><span class="o">=</span>gpu:a100:2 <span class="nt">-p</span> p1 <span class="nt">--time</span><span class="o">=</span>1-00:00:00 <span class="nt">-J</span> cv_lab1 <span class="nt">--cpus-per-task</span><span class="o">=</span>20 <span class="nt">--pty</span> bash
+</code></pre></div>
+<blockquote>
+<p>파티션 p2의 사용자가 A6000 GPU 2개를 12시간 동안 요청하기</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>srun <span class="nt">--gres</span><span class="o">=</span>gpu:a6000:2 <span class="nt">-p</span> p2 <span class="nt">--time</span><span class="o">=</span>12:00:00 <span class="nt">-J</span> cv_lab1 <span class="nt">--pty</span> bash
+</code></pre></div>
+<blockquote>
+<p>파티션 p3의 사용자가 A40 GPU 2개를 2일 동안 요청하기</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>srun <span class="nt">--gres</span><span class="o">=</span>gpu:a40:2 <span class="nt">-p</span> p3 <span class="nt">--time</span><span class="o">=</span>2-00:00:00 <span class="nt">-J</span> cv_lab1 <span class="nt">--pty</span> bash
 </code></pre></div>
 <p>로그인을 한 후, 명령어로 GPU 할당 요청이 가능합니다.<br/>
 <code>srun --gres=gpu:&lt;type&gt;:&lt;number&gt; -p &lt;partition&gt; --time=&lt;time&gt; -J &lt;jobname&gt; --cpus-per-core &lt;int&gt; --pty bash</code></p>
