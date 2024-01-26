@@ -64,7 +64,7 @@ ssh "yourID"@165.246.75.159
 ```
 
 사용자는 SSH 연결을 통해 Login Node 에 접속한 후, Slurm 시스템에게 GPU 자원 할당을 신청 할 수 있습니다.
-<br/> SSH 연결은 Windows PowerShell, Ubuntu Terminal, MobaXterm 등 프로그램을 통해 사용 할 수 있습니다.
+<br/> SSH 연결은 Windows PowerShell, Ubuntu Terminal, MobaXterm 등의 프로그램을 통해 사용 할 수 있습니다.
 
 
 ## 코드 및 데이터 업로드
@@ -86,6 +86,17 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 
 ```shell
 srun --gres=gpu:a100:2 -p p1 --time=1-00:00:00 -J cv_lab1 --cpus-per-task=20 --pty bash
+```
+> 파티션 p2의 사용자가 A6000 GPU 2개를 12시간 동안 요청하기
+
+```shell
+srun --gres=gpu:a6000:2 -p p2 --time=12:00:00 -J cv_lab1 --pty bash
+```
+
+> 파티션 p3의 사용자가 A40 GPU 2개를 2일 동안 요청하기
+
+```shell
+srun --gres=gpu:a40:2 -p p3 --time=2-00:00:00 -J cv_lab1 --pty bash
 ```
 
 로그인을 한 후, 명령어로 GPU 할당 요청이 가능합니다.<br/>
