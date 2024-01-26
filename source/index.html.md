@@ -95,7 +95,7 @@ srun --gres=gpu:a100:2 -p p1 --time=1-00:00:00 -J cv_lab1 --cpus-per-task=20 --p
 
 ## 개발 환경 구축
 현재 GPU 서버에서는 miniconda 환경과 singularity 환경을 지원하고 있습니다.
-<br>별도의 docker환경은 제공하지 않지만, [singularity image 변환](#docker-이미지를-singularity-sif로-변환하기-with-docker-hub)을 통해 docker image를 사용하실 수 있습니다.
+<br>별도의 docker환경은 제공하지 않지만, [singularity image 변환](#singulairty-container-활용)을 통해 docker image를 사용하실 수 있습니다.
 
 ## miniconda 환경 설정
 
