@@ -145,6 +145,7 @@ jupyter-notebook --no-browser --ip=<165.246.***.***> --port=<port number>
 </aside>
 
 ### sif이미지를 사용해서 singularity container 실행
+우측 코드를 참조하여 실행
 <aside class="warning">
 <code>/shared/public/images</code> 경로에 Singularirty 이미지를 저장하지 마세요.
 본인계정의 home 경로에 저장하시길 부탁드립니다.
@@ -168,6 +169,11 @@ exit
 ```
 
 ### Docker 이미지를 Singularity SIF로 변환하기 - Docker Hub 사용편
+
+1. Docker 이미지 선택 : Docker hub에서 변환하고자 하는 Dokcer image의 url을 찾습니다.
+<br> 이때, 본인이 원하는 이미지가 docker hub에 없다면 업로드 할 수 있습니다(회원가입 필요).
+<br> - docker hub 접속 (https://hub.docker.com/)
+<br><img src="/source/images/docker_p1.png" width="450px" height="300px" title="docker 홈페이지" alt="Docker homepage"></img>
 
 ## Get a Specific Kitten
 
