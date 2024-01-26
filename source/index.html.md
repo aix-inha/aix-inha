@@ -160,13 +160,16 @@ jupyter-notebook --no-browser --ip=<165.246.***.***> --port=<port number>
 우측 코드를 참조하여 실행
 
 > 공용폴더(/shared/public/images)로 이동
+
 ```shell
 cd /shared/public/images
 
 #공용폴더에서 사용할 Singularity 이미지(.sif)를 확인
 ls
 ```
+
 > 원하는 이미지가 있고, 이를 사용하려면 다음 명령어 실행
+
 ```shell
 singularity exec --nv /shared/public/images/<imagefile name> bash
 
