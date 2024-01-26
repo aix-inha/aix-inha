@@ -495,32 +495,30 @@ ifconfig
 jupyter-notebook <span class="nt">--no-browser</span> <span class="nt">--ip</span><span class="o">=</span>&lt;165.246.<span class="k">***</span>.<span class="k">***</span><span class="o">&gt;</span> <span class="nt">--port</span><span class="o">=</span>&lt;port number&gt;
 </code></pre></div>
 <aside class="warning">만약 port 번호를 10100으로 설정했는데 실행이 안될경우, ⭐숫자를 1씩 증가시켜가며⭐ 실행되는 port 번호를 사용하면 됩니다. 만약 모든 포트번호를 사용했는데 실행이 안되는 경우, 아래의 연락처로 연락주시면 감사하겠습니다.<br>문의처: 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr, 032-860-9472) </aside>
-<h2 id='singulairty'>singulairty</h2><h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<h2 id='singulairty'>singulairty</h2>
+<aside class="notice">
+도커 이미지를 Singularity 이미지로 간편하게 변환하여 사용할 수 있습니다.
 </aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<h3 id='sif-singularity-container'>sif이미지를 사용해서 singularity container 실행</h3>
+<aside class="warning">
+<code>/shared/public/images</code> 경로에 Singularirty 이미지를 저장하지 마세요.
+본인계정의 home 경로에 저장하시길 부탁드립니다.
+</aside>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c">#공용폴더(/shared/public/images)로 이동</span>
+<span class="nb">cd</span> /shared/public/images
+
+<span class="c">#공용폴더에서 사용할 Singularity 이미지(.sif)를 확인</span>
+<span class="nb">ls</span>
+
+<span class="c"># 원하는 이미지가 있고, 이를 사용하려면 다음 명령어 실행</span>
+singularity <span class="nb">exec</span> <span class="nt">--nv</span> /shared/public/images/&lt;imagefile name&gt; bash
+
+<span class="c">#만약 이미지를 jupyter notebook으로 실행시키고 싶다면</span>
+singularity <span class="nb">exec</span> <span class="nt">--nv</span> /shared/public/images/&lt;imagefile name&gt; jupyter notebook <span class="nt">--no-browser</span> <span class="nt">--ip</span><span class="o">=</span>&lt;위에서 복사한 ip주소&gt; <span class="nt">--port</span><span class="o">=</span>&lt;위에서 설정한 포트번호&gt;
+
+<span class="c">#singularity Container의 사용을 중단하고 싶다면</span>
+<span class="nb">exit</span>
+</code></pre></div><h3 id='docker-singularity-sif-docker-hub'>Docker 이미지를 Singularity SIF로 변환하기 - Docker Hub 사용편</h3><h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
 <span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -534,7 +532,7 @@ Remember — a happy kitten is an authenticated kitten!
 <p>This endpoint retrieves a specific kitten.</p>
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request'>HTTP Request</h3>
 <p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -561,7 +559,7 @@ Remember — a happy kitten is an authenticated kitten!
 </blockquote>
 
 <p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
