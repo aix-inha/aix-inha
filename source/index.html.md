@@ -96,7 +96,7 @@ srun --gres=gpu:a100:2 -p p1 --time=1-00:00:00 -J cv_lab1 --cpus-per-task=20 --p
 ## 개발 환경 구축
 현재 GPU 서버에서는 miniconda 환경과 singularity 환경을 지원하고 있습니다.
 
-## miniconda 환경 설정하기
+## miniconda 환경 설정
 
 ```shell
 # 설치 파일을 다운로드할 경로로 이동(to home directory)
@@ -128,7 +128,7 @@ export PATH=~/miniconda3/bin:$PATH
 source ~/.bashrc
 ```
 
-## Jupyter notebook 실행방법
+## Jupyter notebook 실행
 할당받은 GPU 노드에서 IP를 알아 낸 후, jupyter notebook을 웹에 띄웁니다.
 
 ```shell
@@ -139,7 +139,7 @@ jupyter-notebook --no-browser --ip=<165.246.***.***> --port=<port number>
 ```
 <aside class="warning">만약 port 번호를 10100으로 설정했는데 실행이 안될경우, ⭐숫자를 1씩 증가시켜가며⭐ 실행되는 port 번호를 사용하면 됩니다. 만약 모든 포트번호를 사용했는데 실행이 안되는 경우, 아래의 연락처로 연락주시면 감사하겠습니다.<br>문의처: 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr, 032-860-9472) </aside>
 
-## singulairty
+## singulairty Container 활용
 <aside class="notice">
 도커 이미지를 Singularity 이미지로 간편하게 변환하여 사용할 수 있습니다.
 </aside>
@@ -172,17 +172,26 @@ exit
 
 1. Docker 이미지 선택 : Docker hub에서 변환하고자 하는 Dokcer image의 url을 찾습니다.
 <br> 이때, 본인이 원하는 이미지가 docker hub에 없다면 업로드 할 수 있습니다(회원가입 필요).
+<br>
 <br> - docker hub 접속 (<https://hub.docker.com/>)
 <br><img src="./images/docker_p1.png" width="550px" height="300px" title="docker 홈페이지" alt="Docker homepage"></img>
+<br>
 <br> - 원하는 docker Image 검색  ( ※본인의 이미지를 docker hub에 올릴 수 있습니다※)
-<br><img src="./images/docker_p2.png" width="550px" height="300px" title="docker 홈페이지" alt="Docker homepage"></img>
+<br><img src="./images/docker_p2.png" width="550px" height="300px" title="docker image list" alt="Docker image list"></img>
+<br>
 <br> - 원하는 도커 이미지 선택
-<br><img src="./images/docker_p3.png" width="550px" height="300px" title="docker 홈페이지" alt="Docker homepage"></img>
+<br><img src="./images/docker_p3.png" width="550px" height="300px" title="docker hash name" alt="Docker hash name"></img>
 
 2. Terminal로 복귀 및 변환 명령어 실행
 <br>예) <code>singularity build ~/my_cuda_image.sif docker://pytorch/pytorch:1.9.1-cuda11.1-cudnn8-devel</code>
+
 - singularity build시, 시간이 오래걸릴 수 있습니다. 또한 singularity image파일을 저장할 경우 꼭 본인 계정의 home directory에 저장할 것을 부탁드립니다. (~/파일이름.sif) 
 <br>**/shared/public/images에 하지 않기**
+
+### Docker 이미지를 Singularity SIF로 변환하기 - 로컬 이미지 사용편
+
+- Docker 이미지 저장
+- Singularity 명령어 실행
 
 ## Get a Specific Kitten
 
