@@ -95,7 +95,7 @@ srun --gres=gpu:a100:2 -p p1 --time=1-00:00:00 -J cv_lab1 --cpus-per-task=20 --p
 
 ## 개발 환경 구축
 현재 GPU 서버에서는 miniconda 환경과 singularity 환경을 지원하고 있습니다.
-<br>별도의 docker환경은 제공하지 않지만, [singularity image 변환](#singulairty-container-활용)을 통해 docker image를 사용하실 수 있습니다.
+<br>별도의 docker환경은 제공하지 않지만, [singularity image 변환](#singulairty-container)을 통해 docker image를 사용하실 수 있습니다.
 
 ## miniconda 환경 설정
 
@@ -169,7 +169,7 @@ singularity exec --nv /shared/public/images/<imagefile name> jupyter notebook --
 exit
 ```
 
-### Docker 이미지를 Singularity SIF로 변환하기 with Docker Hub
+### Docker 이미지를 Singularity SIF로 변환하기 - Docker Hub 사용편
 
 1. Docker 이미지 선택 : Docker hub에서 변환하고자 하는 Dokcer image의 url을 찾습니다.
 <br> 이때, 본인이 원하는 이미지가 docker hub에 없다면 업로드 할 수 있습니다(회원가입 필요).
