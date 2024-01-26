@@ -462,7 +462,7 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 <code>srun --gres=gpu:&lt;type&gt;:&lt;number&gt; -p &lt;partition&gt; --time=&lt;time&gt; -J &lt;jobname&gt; --cpus-per-core &lt;int&gt; --pty bash</code></p>
 <h2 id='a6aa210ad3'>개발 환경 구축</h2>
 <p>현재 GPU 서버에서는 miniconda 환경과 singularity 환경을 지원하고 있습니다.
-<br>별도의 docker환경은 제공하지 않지만, <a href="#docker-이미지를-singularity-sif로-변환하기-with-docker-hub">singularity image 변환</a>을 통해 docker image를 사용하실 수 있습니다.</p>
+<br>별도의 docker환경은 제공하지 않지만, <a href="#singulairty-container-활용">singularity image 변환</a>을 통해 docker image를 사용하실 수 있습니다.</p>
 <h2 id='miniconda'>miniconda 환경 설정</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># 설치 파일을 다운로드할 경로로 이동(to home directory)</span>
 <span class="nb">cd</span> ~
 
