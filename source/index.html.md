@@ -51,7 +51,7 @@ AI 센터에서는 11개의 GPU 서버 (56 GPUs) 를 제공하고 있습니다.
 
 
 # 사용 방법
-### 사용 절차:
+### 사용 절차
 GPU 서버 사용 과정은 아래와 같습니다:<br/>
 SSH 로그인을 통한 서버 접속 (Login Node) -> 코드 및 데이터 업로드 -> GPU 자원 신청 -> (환경 구축) -> GPU 사용
 
@@ -95,10 +95,8 @@ srun --gres=gpu:a100:2 -p p1 --time=1-00:00:00 -J cv_lab1 --cpus-per-task=20 --p
 
 ## 개발 환경 구축
 현재 GPU 서버에서는 miniconda 환경과 singularity 환경을 지원하고 있습니다.
-## 개발 환경 구축
-현재 GPU 서버에서는 miniconda 환경과 singularity 환경을 지원하고 있습니다.
 
-### miniconda 환경 설정하기
+## miniconda 환경 설정하기
 
 ```shell
 # 설치 파일을 다운로드할 경로로 이동(to home directory)
@@ -122,7 +120,7 @@ conda activate <환경 이름>
 <aside class="warning"> <i>conda: command not found</i> 오류 발생시 우측 예시와 같이 환경설정을 해야 함.</aside>
 
 ```shell
-#다음 명령어 수행
+#다음 명령어 수행 (conda 환경설정 오류가 발생했을 경우에만)
 vi ~/.bashrc
 #vi 편집기에서 입력모드(i)로 들어가서 파일끝에 다음 명령어 추가 후 저장(esc, :wq)
 export PATH=~/miniconda3/bin:$PATH
@@ -130,7 +128,7 @@ export PATH=~/miniconda3/bin:$PATH
 source ~/.bashrc
 ```
 
-><p> Jupyter notebook 실행방법</p>
+## Jupyter notebook 실행방법
 할당받은 GPU 노드에서 IP를 알아 낸 후, jupyter notebook을 웹에 띄웁니다.
 
 ```shell
@@ -140,9 +138,8 @@ ifconfig
 jupyter-notebook --no-browser --ip=<165.246.***.***> --port=<port number>
 ```
 <aside class="warning">만약 port 번호를 10100으로 설정했는데 실행이 안될경우, ⭐숫자를 1씩 증가시켜가며⭐ 실행되는 port 번호를 사용하면 됩니다. 만약 모든 포트번호를 사용했는데 실행이 안되는 경우, 아래의 연락처로 연락주시면 감사하겠습니다.<br>문의처: 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr, 032-860-9472) </aside>
-<br>
 
-### singulairty
+## singulairty
 
 ### HTTP Request
 
