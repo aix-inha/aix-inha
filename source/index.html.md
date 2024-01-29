@@ -117,7 +117,7 @@ srun --gres=gpu:a40:2 -p p3 --time=2-00:00:00 -J cv_lab1 --pty bash
 <img src="./images/alloc_wait.png" width="550px" title="할당 대기" alt="wait for Allocation"><br>사용자가 많을 경우, 위와 같이 할당대기중이라는 안내가 나옴.</img>
 
 ### 대기열 상태 확인
-<code>srun</code> 또는 <code>sbatch</code>로 신청한 자원이 이미 사용되고 있을경우, 대기열에 들어갑니다. 이때 대기열을 확인하고싶다면 다음 명령어를 사용하면 됩니다.
+<code>srun</code> 또는 <code>sbatch</code>로 신청한 자원이 이미 사용되고 있을경우, 대기열에 들어갑니다. 이때 대기열을 확인하고싶다면 우측 명령어를 사용하면 됩니다.
 > 신청한 작업의 ID를 squeue 명령어를 통해 확인하기(대기열 현황)
 
 ```shell
