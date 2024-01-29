@@ -270,23 +270,24 @@ Data를 불러온 후, GPU로 data를 전송할 때 전처리과정을 거치는
 srun --gres=gpu:<type>:<number> --cpus-per-task=<할당받을 cpu core 수> -p <partition> --time=<time> -J <jobname> -w <GPU node 명칭> --pty bash
 ```
 > Local 디렉토리 생성 및 데이터 복사 <br>
-> GPU Node 각각의 Local disk경로로 이동
+> 1. GPU Node 각각의 Local disk경로로 이동
 
 ```shell
 cd /raid
 ```
-> 사용자 이름의 경로 생성
+> 2. 사용자 이름의 경로 생성
+
 ```shell
 mkdir [user name]
 ```
 
-> 자신의 home 경로에서 /raid/user_name 으로 데이터 복사
+> 3. 자신의 home 경로에서 /raid/user_name 으로 데이터 복사
 
 ```shell
 cp -R /shared/home/[user name]/data /raid/[user name]
 ```
 
-> 학습에 필요한 image file을 local disk로 복사
+> 4. 학습에 필요한 image file을 local disk로 복사
 
 ```shell
 cp /shared/public/images/<image name> /raid/<user name>
