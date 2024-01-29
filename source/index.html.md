@@ -237,68 +237,89 @@ exit
 - Docker 이미지 저장
 - Singularity 명령어 실행
 
-## Get a Specific Kitten
 
+## Local Disk 활용법
 
-```python
-import kittn
+학습 데이터의 크기가 클 경우, 네트워크 병목 현상으로 인하여 학습이 지연될 수 있습니다. 이런 경우, 각각의 GPU Node의 Local Disk를 이용하여 학습한다면 더 빠른 속도로 학습할 수 있습니다.
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+ 
+  - 각 GPU 별 Node 명칭 <br>
+    A100 : a100-[n1~n4] <br>
+    A6000 : sv4ka-[n1~n4] <br>
+    A40 : sv8ka-[n1~n3] <br>
 
-```shell
-curl "http://example.com/api/kittens/2" \
-  -H "Authorization: meowmeowmeow"
-```
-
-
-> The above command returns JSON structured like this:
-
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
+> 1. Login node 접속 (port number : 22)
 
 ```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
+ssh [본인의 ID]@165.246.75.159
+```
+<aside class="notice">
+<code>--cpus-per-task</code> option을 사용해서 할당받을 Cpu core의 개수를 지정할 수 있습니다. <br>
+각 GPU마다 <b>최대로 지정할 수 있는</b> CPU core수는 다릅니다. A100은 최대 20개, A6000은 최대 6개, A40은 최대 10개까지 할당받을 수 있습니다. <br>
+만약 a40 GPU를 4개 할당받았다면, CPU는 최대 40개까지 할당받을 수 있습니다. <br>
+Data를 불러온 후, GPU로 data를 전송할 때 전처리과정을 거치는데, 이때 CPU자원이 많을수록 처리속도가 빨라집니다. <br>
+만약 이전에 저장한 GPU Node에서 작업하고 싶다면, <code>-w [GPU node 이름]</code> option을 이용해서 지정할 수 있습니다.
+</aside>
+<aside class="warning">
+할당시, GPU Node별 최대 할당가능한 core수 이상 지정하지 않도록 유의하세요.
+</aside>
+
+> 2. GPU 할당
+
+```
+srun --gres=gpu:<type>:<number> --cpus-per-task=<할당받을 cpu core 수> -p <partition> --time=<time> -J <jobname> -w <GPU node 명칭> --pty bash
+```
+> 3. Local 디렉토리 생성 및 데이터 복사 <br>
+  3-1. GPU Node 각각의 Local disk경로로 이동
+
+```shell
+cd /raid
+```
+> 3-2. 사용자 이름의 경로 생성
+```shell
+mkdir [user name]
 ```
 
+> 3-3. 자신의 home 경로에서 /raid/user_name 으로 데이터 복사
 
-> The above command returns JSON structured like this:
+```shell
+cp -R /shared/home/[user name]/data /raid/[user name]
+```
 
+> 3-4. 학습에 필요한 image file을 local disk로 복사
 
-This endpoint deletes a specific kitten.
+```shell
+cp /shared/public/images/<image name> /raid/<user name>
+```
 
-### HTTP Request
+### Singularity 실행시 Disk mount
+- Singularity 실행시, -B /raid 옵션을 추가해 local disk를 mount 해줍니다.
+- 만약 위의 옵션을 사용하지 않으면 singularity환경에서 /raid 경로를 볼 수 없습니다. <br>
+<code>singularity exec -B /raid --nv /raid/[user name]/[image name] bash </code>
+<br>
+- local disk에 Mount가 잘 되었는지 확인하기 (singularity 접속상태에서)<br>
+<code>ll /raid</code>
+- Pytorch import 여부 확인 <br>
+<code> python3 </code> 입력 후, <code>import torch</code> 입력시 이상이 없는지 확인.
 
-`DELETE http://example.com/kittens/<ID>`
+### 작업 완료 후 결과물 이동방법
+모든 GPU node의 Local Disk의 경로는 /raid 로 되어있습니다. 그리고 각 GPU node의 DISK용량은 약 3TB 이상(GPU node별 약간의 차이가 있음)입니다. <br>
+계정 당 <b>최대 300GB</b>를 사용 할 수 있으며, 초과 사용 시, 다른 사용자를 위해서 디렉토리의 데이터는 <strong style="color:red;">삭제</strong>될 수 있습니다.
+<aside class="warning">
+중요한 모델 파일 및 코드는 항상 백업을 부탁드립니다.
+</aside>
 
-### URL Parameters
+### CPU만 할당받아 특정 Node에 접근하기
+만약, a40 GPU <b>3번 node</b>에 GPU할당 없이 접속하여 데이터를 가져오고싶다면 다음 명령어 사용.<br>
+<code>srun --gres=gpu:0 —-cpus-per-task=10 —-mem=16G -p p1 -w sv8ka-n3 —-pty bash </code>
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
+- p 다음에 자신이 속한 partition, -w 다음에 원하는 gpu 명칭 (a100→a100, a40→sv8ka, a6000→sv4ka) <br>
+- 이후 cp 명령어를 사용하여 복사 (<code>cp -R /원본경로 /대상경로</code>)<br>
+  예) <code>cp -R /shared/home/USER_NAME/data /raid/USER_NAME</code>
+<aside class="warning">
+학습에 사용할 pytorch나 tensorflow image파일도 복사해야합니다.
+</aside>
+<aside class="success">
+ <a href='https://slurm.schedmd.com/documentation.html' target="_blank">Slurm Documentation</a> <br>
+  <a href='https://apptainer.org/user-docs/master/index.html' target="_blank">Singularity Documentation</a>
+</aside>
