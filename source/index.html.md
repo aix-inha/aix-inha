@@ -57,7 +57,7 @@ SSH 로그인을 통한 서버 접속 (Login Node) -> 코드 및 데이터 업�
 
 - 사용 가이드 영상
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/GX4FgkJ2sRY?si=yDdse6TVn2HbKqlB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GX4FgkJ2sRY?si=yDdse6TVn2HbKqlB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="padding-left: 30px;"></iframe>
 
 ## GPU 서버 접속
 > "yourID"를 본인의 ID로 입력하여 SSH 연결하시길 바랍니다.
