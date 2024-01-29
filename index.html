@@ -529,12 +529,10 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>ifconfig
 </code></pre></div>
 <blockquote>
-<p>위에서 복사한 ip주소를 <165.246.***.***> 부분에 넣고 port번호는 10100~10109 중 하나로 설정
-<code>shell
-jupyter-notebook --no-browser --ip=&lt;165.246.***.***&gt; --port=&lt;port number&gt;
-</code></p>
+<p>위에서 복사한 ip주소를 <165.246.***.***> 부분에 넣고 port번호는 10100~10109 중 하나로 설정</p>
 </blockquote>
-
+<div class="highlight"><pre class="highlight shell tab-shell"><code>jupyter-notebook <span class="nt">--no-browser</span> <span class="nt">--ip</span><span class="o">=</span>&lt;165.246.<span class="k">***</span>.<span class="k">***</span><span class="o">&gt;</span> <span class="nt">--port</span><span class="o">=</span>&lt;port number&gt;
+</code></pre></div>
 <aside class="warning">만약 port 번호를 10100으로 설정했는데 실행이 안될경우, ⭐숫자를 1씩 증가시켜가며⭐ 실행되는 port 번호를 사용하면 됩니다. 만약 모든 포트번호를 사용했는데 실행이 안되는 경우, 아래의 연락처로 연락주시면 감사하겠습니다.<br>문의처: 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr, 032-860-9472) </aside>
 <h2 id='singulairty-container'>singulairty Container 활용</h2>
 <aside class="notice">
@@ -555,9 +553,11 @@ jupyter-notebook --no-browser --ip=&lt;165.246.***.***&gt; --port=&lt;port numbe
 <p>원하는 이미지가 있고, 이를 사용하려면 다음 명령어 실행</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>singularity <span class="nb">exec</span> <span class="nt">--nv</span> /shared/public/images/&lt;imagefile name&gt; bash
-
-<span class="c">#만약 이미지를 jupyter notebook으로 실행시키고 싶다면</span>
-singularity <span class="nb">exec</span> <span class="nt">--nv</span> /shared/public/images/&lt;imagefile name&gt; jupyter notebook <span class="nt">--no-browser</span> <span class="nt">--ip</span><span class="o">=</span>&lt;위에서 복사한 ip주소&gt; <span class="nt">--port</span><span class="o">=</span>&lt;위에서 설정한 포트번호&gt;
+</code></pre></div>
+<blockquote>
+<p>만약 이미지를 jupyter notebook으로 실행시키고 싶다면</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>singularity <span class="nb">exec</span> <span class="nt">--nv</span> /shared/public/images/&lt;imagefile name&gt; jupyter notebook <span class="nt">--no-browser</span> <span class="nt">--ip</span><span class="o">=</span>&lt;위에서 복사한 ip주소&gt; <span class="nt">--port</span><span class="o">=</span>&lt;위에서 설정한 포트번호&gt;
 
 <span class="c">#singularity Container의 사용을 중단하고 싶다면</span>
 <span class="nb">exit</span>
