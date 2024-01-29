@@ -31,7 +31,7 @@ AI 센터의 자원을 이용하시려면 먼저 <a href='https://aix.inha.ac.kr
 </aside>
 
 공지 수신 및 기술적인 문제나 사용법에 대한 질문이 있으시면, [디스코드 채널](https://discord.gg/PyBkTDz4Mp)에 입장하여 연락주시기 바랍니다.
-<br/>추가로, 긴급 공지 사항을 위해 만들어진 [카카오오픈채팅방](https://open.kakao.com/o/gNVmxJof)에 반드시 참여를 부탁드립니다.
+<br/>추가로, 긴급 공지 사항을 위해 만들어진 [카카오오픈채팅방](https://open.kakao.com/o/gNVmxJof)에 <strong style="color:red">반드시</strong> 참여를 부탁드립니다.
 
 ### System Overview
 Simple Linux Utility for Resource Management (이하 “Slurm”) 을 통해 GPU 자원을 제공하고 있습니다. Slurm은 클러스터 환경의 자원 관리 시스템으로, 사용자의 요청에 컴퓨팅 자원을 할당합니다.  
@@ -55,6 +55,9 @@ AI 센터에서는 11개의 GPU 서버 (56 GPUs) 를 제공하고 있습니다.
 GPU 서버 사용 과정은 아래와 같습니다:<br/>
 SSH 로그인을 통한 서버 접속 (Login Node) -> 코드 및 데이터 업로드 -> GPU 자원 신청 -> (환경 구축) -> GPU 사용
 
+- 사용 가이드 영상
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GX4FgkJ2sRY?si=yDdse6TVn2HbKqlB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## GPU 서버 접속
 > "yourID"를 본인의 ID로 입력하여 SSH 연결하시길 바랍니다.
