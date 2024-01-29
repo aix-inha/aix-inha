@@ -387,12 +387,6 @@
 <p>인하대학교 인공지능융합연구센터 (이하 ”AI 센터”)에 오신 것을 환영합니다. 저희 AI 센터는 최첨단 GPU 서버 센터를 구축하여 A100, A6000, A40 등의 고성능 컴퓨팅 자원을 인하대학교 학생 및 교수님들, 그리고 기업체 및 인천시민 여러분께 무상으로 제공하고 있습니다. 이를 통해 인공지능 연구와 개발에 필요한 모든 고성능 계산 작업을 지원하고자 합니다.
 <br/>작성된 튜토리얼을 통해 원활한 사용과 연구에 도움이 되기를 진심으로 바라겠습니다.</p>
 
-<!-->
-<aside class="notice">
-AI 센터의 자원을 이용하시려면 먼저 [인하대학교 인공지능융합연구센터 홈페이지](https://aix.inha.ac.kr/)를 통해 계정을 신청하시기 바랍니다.
-</aside>
-<-->
-
 <aside class="notice">
 AI 센터의 자원을 이용하시려면 먼저 <a href='https://aix.inha.ac.kr/?page_id=4109&vid=1' target="_blank">인하대학교 인공지능융합연구센터 홈페이지</a>를 통해 계정을 신청하시기 바랍니다.
 </aside>
@@ -481,43 +475,72 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 <br>별도의 docker환경은 제공하지 않지만, <a href="#singulairty-container">singularity image 변환</a>을 통해 docker image를 사용하실 수 있습니다.</p>
 <h2 id='miniconda'>miniconda 환경 설정</h2>
 <blockquote>
-<p>설치 파일을 다운로드할 경로로 이동(to home directory)
-<code>shell
-cd ~
-</code></p>
-
-<p>Miniconda 설치 파일 다운로드
-<code>shell
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-</code></p>
-
-<p>설치 파일 실행
-<code>bash Miniconda3-latest-Linux-x86_64.sh</code></p>
-
-<p>Anaconda 설치 후 재접속
-<code>exit</code></p>
-
-<p>conda 환경 생성 예시
-<code>conda create -n &lt;환경 이름&gt; python=&lt;파이썬 버전&gt;</code></p>
-
-<p>conda 환경 실행
-<code>conda activate &lt;환경 이름&gt;</code></p>
+<p>설치 파일을 다운로드할 경로로 이동(to home directory)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">cd</span> ~
+</code></pre></div>
+<blockquote>
+<p>Miniconda 설치 파일 다운로드</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+</code></pre></div>
+<blockquote>
+<p>설치 파일 실행</p>
 </blockquote>
 
+<p><code>bash Miniconda3-latest-Linux-x86_64.sh</code></p>
+
+<blockquote>
+<p>Anaconda 설치 후 재접속</p>
+</blockquote>
+
+<p><code>exit</code></p>
+
+<blockquote>
+<p>conda 환경 생성 예시</p>
+</blockquote>
+
+<p><code>conda create -n &lt;환경 이름&gt; python=&lt;파이썬 버전&gt;</code></p>
+
+<blockquote>
+<p>conda 환경 실행</p>
+</blockquote>
+
+<p><code>conda activate &lt;환경 이름&gt;</code></p>
+
 <aside class="warning"> <i>conda: command not found</i> 오류 발생시 우측 예시와 같이 환경설정을 해야 함.</aside>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c">#다음 명령어 수행 (conda 환경설정 오류가 발생했을 경우에만)</span>
-vi ~/.bashrc
-<span class="c">#vi 편집기에서 입력모드(i)로 들어가서 파일끝에 다음 명령어 추가 후 저장(esc, :wq)</span>
-<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>~/miniconda3/bin:<span class="nv">$PATH</span>
-<span class="c">#환경변수 설정 반영</span>
-<span class="nb">source</span> ~/.bashrc
-</code></pre></div><h2 id='jupyter-notebook'>Jupyter notebook 실행</h2>
+
+<blockquote>
+<p>다음 명령어 수행 (conda 환경설정 오류가 발생했을 경우에만)</p>
+</blockquote>
+
+<p><code>vi ~/.bashrc</code></p>
+
+<blockquote>
+<p>vi 편집기에서 입력모드(i)로 들어가서 파일끝에 다음 명령어 추가 후 저장(esc, :wq)</p>
+</blockquote>
+
+<p><code>export PATH=~/miniconda3/bin:$PATH</code></p>
+
+<blockquote>
+<p>환경변수 설정 반영</p>
+</blockquote>
+
+<p><code>source ~/.bashrc</code></p>
+<h2 id='jupyter-notebook'>Jupyter notebook 실행</h2>
 <p>할당받은 GPU 노드에서 IP를 알아 낸 후, jupyter notebook을 웹에 띄웁니다.</p>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c">#다음 명령어 수행후, inet 165.246.***.*** 부분의 ip주소를 복사</span>
-ifconfig
-<span class="c">#위에서 복사한 ip주소를 &lt;165.246.***.***&gt; 부분에 넣고 port번호는 10100~10109 중 하나로 설정</span>
-jupyter-notebook <span class="nt">--no-browser</span> <span class="nt">--ip</span><span class="o">=</span>&lt;165.246.<span class="k">***</span>.<span class="k">***</span><span class="o">&gt;</span> <span class="nt">--port</span><span class="o">=</span>&lt;port number&gt;
-</code></pre></div>
+
+<blockquote>
+<p>다음 명령어 수행후, inet 165.246.<strong><em>.</em></strong> 부분의 ip주소를 복사</p>
+</blockquote>
+
+<p><code>ifconfig</code></p>
+
+<blockquote>
+<p>위에서 복사한 ip주소를 <165.246.***.***> 부분에 넣고 port번호는 10100~10109 중 하나로 설정
+<code>jupyter-notebook --no-browser --ip=<165.246.***.***> --port=<port number></code></p>
+</blockquote>
+
 <aside class="warning">만약 port 번호를 10100으로 설정했는데 실행이 안될경우, ⭐숫자를 1씩 증가시켜가며⭐ 실행되는 port 번호를 사용하면 됩니다. 만약 모든 포트번호를 사용했는데 실행이 안되는 경우, 아래의 연락처로 연락주시면 감사하겠습니다.<br>문의처: 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr, 032-860-9472) </aside>
 <h2 id='singulairty-container'>singulairty Container 활용</h2>
 <aside class="notice">
