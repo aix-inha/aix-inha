@@ -123,38 +123,56 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 
 > 설치 파일 실행
 
-<code>bash Miniconda3-latest-Linux-x86_64.sh</code>
+```shell
+bash Miniconda3-latest-Linux-x86_64.sh
+```
 > Anaconda 설치 후 재접속
 
-<code>exit</code>
+```shell
+exit
+```
 > conda 환경 생성 예시
 
-<code>conda create -n <환경 이름> python=<파이썬 버전></code>
+```bash
+conda create -n <환경 이름> python=<파이썬 버전>
+```
 > conda 환경 실행
 
-<code>conda activate <환경 이름></code>
+```bash
+conda activate <환경 이름>
+```
 
 <aside class="warning"> <i>conda: command not found</i> 오류 발생시 우측 예시와 같이 환경설정을 해야 함.</aside>
 
 
 >다음 명령어 수행 (conda 환경설정 오류가 발생했을 경우에만)
 
-<code>vi ~/.bashrc</code>
->vi 편집기에서 입력모드(i)로 들어가서 파일끝에 다음 명령어 추가 후 저장(esc, :wq)
+```shell
+vi ~/.bashrc
+```
+>vi 편집기에서 입력모드(i)로 들어가서 파일끝에 다음 명령어 추가 후 저장(esc, :wq)하기.
 
-<code>export PATH=~/miniconda3/bin:$PATH</code>
+```bash
+export PATH=~/miniconda3/bin:$PATH
+```
 >환경변수 설정 반영
 
-<code>source ~/.bashrc</code>
+```shell
+source ~/.bashrc
+```
 
 ## Jupyter notebook 실행
 할당받은 GPU 노드에서 IP를 알아 낸 후, jupyter notebook을 웹에 띄웁니다.
 
 >다음 명령어 수행후, inet 165.246.***.*** 부분의 ip주소를 복사
 
-<code>ifconfig</code>
+```shell
+ifconfig
+```
 >위에서 복사한 ip주소를 <165.246.***.***> 부분에 넣고 port번호는 10100~10109 중 하나로 설정
-<code>jupyter-notebook --no-browser --ip=<165.246.***.***> --port=<port number></code>
+```shell
+jupyter-notebook --no-browser --ip=<165.246.***.***> --port=<port number>
+```
 
 <aside class="warning">만약 port 번호를 10100으로 설정했는데 실행이 안될경우, ⭐숫자를 1씩 증가시켜가며⭐ 실행되는 port 번호를 사용하면 됩니다. 만약 모든 포트번호를 사용했는데 실행이 안되는 경우, 아래의 연락처로 연락주시면 감사하겠습니다.<br>문의처: 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr, 032-860-9472) </aside>
 
