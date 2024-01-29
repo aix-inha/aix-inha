@@ -487,58 +487,52 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 <blockquote>
 <p>설치 파일 실행</p>
 </blockquote>
-
-<p><code>bash Miniconda3-latest-Linux-x86_64.sh</code></p>
-
+<div class="highlight"><pre class="highlight shell tab-shell"><code>bash Miniconda3-latest-Linux-x86_64.sh
+</code></pre></div>
 <blockquote>
 <p>Anaconda 설치 후 재접속</p>
 </blockquote>
-
-<p><code>exit</code></p>
-
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">exit</span>
+</code></pre></div>
 <blockquote>
 <p>conda 환경 생성 예시</p>
 </blockquote>
-
-<p><code>conda create -n &lt;환경 이름&gt; python=&lt;파이썬 버전&gt;</code></p>
-
+<div class="highlight"><pre class="highlight shell"><code>conda create <span class="nt">-n</span> &lt;환경 이름&gt; <span class="nv">python</span><span class="o">=</span>&lt;파이썬 버전&gt;
+</code></pre></div>
 <blockquote>
 <p>conda 환경 실행</p>
 </blockquote>
-
-<p><code>conda activate &lt;환경 이름&gt;</code></p>
-
+<div class="highlight"><pre class="highlight shell"><code>conda activate &lt;환경 이름&gt;
+</code></pre></div>
 <aside class="warning"> <i>conda: command not found</i> 오류 발생시 우측 예시와 같이 환경설정을 해야 함.</aside>
 
 <blockquote>
 <p>다음 명령어 수행 (conda 환경설정 오류가 발생했을 경우에만)</p>
 </blockquote>
-
-<p><code>vi ~/.bashrc</code></p>
-
+<div class="highlight"><pre class="highlight shell tab-shell"><code>vi ~/.bashrc
+</code></pre></div>
 <blockquote>
-<p>vi 편집기에서 입력모드(i)로 들어가서 파일끝에 다음 명령어 추가 후 저장(esc, :wq)</p>
+<p>vi 편집기에서 입력모드(i)로 들어가서 파일끝에 다음 명령어 추가 후 저장(esc, :wq)하기.</p>
 </blockquote>
-
-<p><code>export PATH=~/miniconda3/bin:$PATH</code></p>
-
+<div class="highlight"><pre class="highlight shell"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>~/miniconda3/bin:<span class="nv">$PATH</span>
+</code></pre></div>
 <blockquote>
 <p>환경변수 설정 반영</p>
 </blockquote>
-
-<p><code>source ~/.bashrc</code></p>
-<h2 id='jupyter-notebook'>Jupyter notebook 실행</h2>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">source</span> ~/.bashrc
+</code></pre></div><h2 id='jupyter-notebook'>Jupyter notebook 실행</h2>
 <p>할당받은 GPU 노드에서 IP를 알아 낸 후, jupyter notebook을 웹에 띄웁니다.</p>
 
 <blockquote>
 <p>다음 명령어 수행후, inet 165.246.<strong><em>.</em></strong> 부분의 ip주소를 복사</p>
 </blockquote>
-
-<p><code>ifconfig</code></p>
-
+<div class="highlight"><pre class="highlight shell tab-shell"><code>ifconfig
+</code></pre></div>
 <blockquote>
 <p>위에서 복사한 ip주소를 <165.246.***.***> 부분에 넣고 port번호는 10100~10109 중 하나로 설정
-<code>jupyter-notebook --no-browser --ip=<165.246.***.***> --port=<port number></code></p>
+<code>shell
+jupyter-notebook --no-browser --ip=&lt;165.246.***.***&gt; --port=&lt;port number&gt;
+</code></p>
 </blockquote>
 
 <aside class="warning">만약 port 번호를 10100으로 설정했는데 실행이 안될경우, ⭐숫자를 1씩 증가시켜가며⭐ 실행되는 port 번호를 사용하면 됩니다. 만약 모든 포트번호를 사용했는데 실행이 안되는 경우, 아래의 연락처로 연락주시면 감사하겠습니다.<br>문의처: 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr, 032-860-9472) </aside>
