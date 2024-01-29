@@ -623,22 +623,28 @@ Data를 불러온 후, GPU로 data를 전송할 때 전처리과정을 거치는
 </code></pre></div>
 <blockquote>
 <p>Local 디렉토리 생성 및 데이터 복사 <br>
-GPU Node 각각의 Local disk경로로 이동</p>
+1. GPU Node 각각의 Local disk경로로 이동</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">cd</span> /raid
 </code></pre></div>
 <blockquote>
-<p>사용자 이름의 경로 생성
-<code>shell
-mkdir [user name]
-</code></p>
-
-<p>자신의 home 경로에서 /raid/user_name 으로 데이터 복사</p>
+<ol>
+<li>사용자 이름의 경로 생성</li>
+</ol>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">mkdir</span> <span class="o">[</span>user name]
+</code></pre></div>
+<blockquote>
+<ol>
+<li>자신의 home 경로에서 /raid/user_name 으로 데이터 복사</li>
+</ol>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">cp</span> <span class="nt">-R</span> /shared/home/[user name]/data /raid/[user name]
 </code></pre></div>
 <blockquote>
-<p>학습에 필요한 image file을 local disk로 복사</p>
+<ol>
+<li>학습에 필요한 image file을 local disk로 복사</li>
+</ol>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">cp</span> /shared/public/images/&lt;image name&gt; /raid/&lt;user name&gt;
 </code></pre></div><h3 id='singularity-disk-mount'>Singularity 실행시 Disk mount</h3>
