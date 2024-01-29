@@ -272,32 +272,32 @@ srun --gres=gpu:<type>:<number> --cpus-per-task=<할당받을 cpu core 수> -p <
 ### local 디렉토리 생성 및 데이터 복사
 만약 이전에 저장한 GPU Node에서 작업하고 싶다면, <code>-w [GPU node 이름]</code> option을 이용해서 지정할 수 있습니다.
 
-> 1. GPU Node 각각의 Local disk경로로 이동
+> GPU Node 각각의 Local disk경로로 이동
 
 ```shell
 cd /raid
 ```
-> 2. 사용자 이름의 경로 생성
+> 사용자 이름의 경로 생성
 
 ```shell
 mkdir [user name]
 ```
 
-> 3. 자신의 home 경로에서 /raid/user_name 으로 데이터 복사
+> 자신의 home 경로에서 /raid/user_name 으로 데이터 복사
 
 ```shell
 cp -R /shared/home/[user name]/data /raid/[user name]
 ```
 
-> 4. 학습에 필요한 image file을 local disk로 복사
+> 학습에 필요한 image file을 local disk로 복사
 
 ```shell
 cp /shared/public/images/<image name> /raid/<user name>
 ```
 
 ### Singularity 실행시 Disk mount
-- Singularity 실행시, -B /raid 옵션을 추가해 local disk를 mount 해줍니다.
-- 만약 위의 옵션을 사용하지 않으면 singularity환경에서 /raid 경로를 볼 수 없습니다. <br>
+- Singularity 실행시, <code>-B /raid</code> 옵션을 추가해 local disk를 mount 해줍니다.
+- 만약 위의 옵션을 사용하지 않으면 singularity환경에서 <code>/raid</code> 경로를 볼 수 없습니다. <br>
 <code>singularity exec -B /raid --nv /raid/[user name]/[image name] bash </code>
 <br>
 - local disk에 Mount가 잘 되었는지 확인하기 (singularity 접속상태에서)<br>
