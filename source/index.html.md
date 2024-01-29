@@ -257,8 +257,7 @@ ssh [본인의 ID]@165.246.75.159
 <code>--cpus-per-task</code> option을 사용해서 할당받을 Cpu core의 개수를 지정할 수 있습니다. <br>
 각 GPU마다 <b>최대로 지정할 수 있는</b> CPU core수는 다릅니다. A100은 최대 20개, A6000은 최대 6개, A40은 최대 10개까지 할당받을 수 있습니다. <br>
 만약 a40 GPU를 4개 할당받았다면, CPU는 최대 40개까지 할당받을 수 있습니다. <br>
-Data를 불러온 후, GPU로 data를 전송할 때 전처리과정을 거치는데, 이때 CPU자원이 많을수록 처리속도가 빨라집니다. <br>
-만약 이전에 저장한 GPU Node에서 작업하고 싶다면, <code>-w [GPU node 이름]</code> option을 이용해서 지정할 수 있습니다.
+Data를 불러온 후, GPU로 data를 전송할 때 전처리과정을 거치는데, 이때 CPU자원이 많을수록 처리속도가 빨라집니다.
 </aside>
 <aside class="warning">
 할당시, GPU Node별 최대 할당가능한 core수 이상 지정하지 않도록 유의하세요.
@@ -269,7 +268,10 @@ Data를 불러온 후, GPU로 data를 전송할 때 전처리과정을 거치는
 ```
 srun --gres=gpu:<type>:<number> --cpus-per-task=<할당받을 cpu core 수> -p <partition> --time=<time> -J <jobname> -w <GPU node 명칭> --pty bash
 ```
-> Local 디렉토리 생성 및 데이터 복사 <br>
+
+### local 디렉토리 생성 및 데이터 복사
+만약 이전에 저장한 GPU Node에서 작업하고 싶다면, <code>-w [GPU node 이름]</code> option을 이용해서 지정할 수 있습니다.
+
 > 1. GPU Node 각각의 Local disk경로로 이동
 
 ```shell
