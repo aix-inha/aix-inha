@@ -69,9 +69,20 @@ ssh "yourID"@165.246.75.159
 
 ## 코드 및 데이터 업로드
 파일 업로드는 본인 계정의 이름으로 된 폴더에 할 수 있습니다.<br/>
-파일 업로드는 GPU 자원을 할당 받지 않고도 가능하며, 로컬 디스크 사용의 경우 CPU 자원만을 할당받아 하시면 됩니다.
+파일 업로드는 GPU <b style="color:orange">자원을 할당 받지 않고도 가능</b>하며, GPU Node의 <u>로컬 디스크</u>를 사용할 경우 <b style="color:orange">CPU 자원만 할당</b>받아 사용하시면 됩니다.<br>
+- 데이터 업로드는 <code>/shared/home/[본인 아이디]</code> 경로 아래에 하시면 됩니다.
+- 데이터 및 코드는 AI 센터의 NAS에 업로드됩니다.
 
 ## 자원 신청
+사용자는 원하는 시간, GPU 및 CPU 자원 등을 명시하여 요청할 수 있습니다. <strong style="color:coral">최대 7일</strong>의 사용 시간을 요청 할 수 있으며, 사용자들의 원활한 사용을 위해 AI센터에서는 사용 시간을 <b>모니터링</b>하고 있습니다. <br>
+지속적으로 자원 요청 정책을 지키지 않는 사용자의 경우, <strong style="color:crimson">작업의 취소 및 패널티</strong>가 부과 될 수 있습니다. <br>
+<br>
+- 자원 할당이 되었을경우
+<img src="./images/alloc_success.png" width="550px" title="docker hash name" alt="Allocation success">위와같이 host명이 login-n1에서 신청한 node의 이름으로 변경됨</img>
+
+- 자원 할당 대기중일 경우
+<img src="./images/alloc_wait.png" width="550px" title="docker hash name" alt="wait for Allocation">사용자가 많을 경우, 위와 같이 할당대기중이라는 안내가 나옴.</img>
+
 > 먼저 명령어로 자신의 파티션을 확인하기 (주의: `는 ' 와 다름)
 
 ```shell
