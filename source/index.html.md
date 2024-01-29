@@ -78,10 +78,12 @@ ssh "yourID"@165.246.75.159
 지속적으로 자원 요청 정책을 지키지 않는 사용자의 경우, <strong style="color:crimson">작업의 취소 및 패널티</strong>가 부과 될 수 있습니다. <br>
 <br>
 - 자원 할당이 되었을경우
-<img src="./images/alloc_success.png" width="550px" title="docker hash name" alt="Allocation success">위와같이 host명이 login-n1에서 신청한 node의 이름으로 변경됨</img>
+
+<img src="./images/alloc_success.png" width="550px" title="docker hash name" alt="Allocation success"><br>위와같이 host명이 login-n1에서 신청한 node의 이름으로 변경됨</img>
 
 - 자원 할당 대기중일 경우
-<img src="./images/alloc_wait.png" width="550px" title="docker hash name" alt="wait for Allocation">사용자가 많을 경우, 위와 같이 할당대기중이라는 안내가 나옴.</img>
+
+<img src="./images/alloc_wait.png" width="550px" title="docker hash name" alt="wait for Allocation"><br>사용자가 많을 경우, 위와 같이 할당대기중이라는 안내가 나옴.</img>
 
 > 먼저 명령어로 자신의 파티션을 확인하기 (주의: `는 ' 와 다름)
 
