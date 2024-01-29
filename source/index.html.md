@@ -77,6 +77,7 @@ ssh "yourID"@165.246.75.159
 사용자는 원하는 시간, GPU 및 CPU 자원 등을 명시하여 요청할 수 있습니다. <strong style="color:coral">최대 7일</strong>의 사용 시간을 요청 할 수 있으며, 사용자들의 원활한 사용을 위해 AI센터에서는 사용 시간을 <b>모니터링</b>하고 있습니다. <br>
 지속적으로 자원 요청 정책을 지키지 않는 사용자의 경우, <strong style="color:crimson">작업의 취소 및 패널티</strong>가 부과 될 수 있습니다. <br>
 <br>
+
 - 자원 할당이 되었을경우
 
 <img src="./images/alloc_success.png" width="550px" title="docker hash name" alt="Allocation success"><br>위와같이 host명이 login-n1에서 신청한 node의 이름으로 변경됨</img>
