@@ -110,11 +110,29 @@ srun --gres=gpu:a40:2 -p p3 --time=2-00:00:00 -J cv_lab1 --pty bash
 
 - 자원 할당이 되었을경우
 
-<img src="./images/alloc_success.png" width="550px" title="docker hash name" alt="Allocation success"><br>위와같이 host명이 login-n1에서 신청한 node의 이름으로 변경됨</img>
+<img src="./images/alloc_success.png" width="550px" title="할당 성공" alt="Allocation success"><br>위와같이 host명이 login-n1에서 신청한 node의 이름으로 변경됨</img>
 
 - 자원 할당 대기중일 경우
 
-<img src="./images/alloc_wait.png" width="550px" title="docker hash name" alt="wait for Allocation"><br>사용자가 많을 경우, 위와 같이 할당대기중이라는 안내가 나옴.</img>
+<img src="./images/alloc_wait.png" width="550px" title="할당 대기" alt="wait for Allocation"><br>사용자가 많을 경우, 위와 같이 할당대기중이라는 안내가 나옴.</img>
+
+### 대기열 상태 확인
+<code>srun</code> 또는 <code>sbatch</code>로 신청한 자원이 이미 사용되고 있을경우, 대기열에 들어갑니다. 이때 대기열을 확인하고싶다면 다음 명령어를 사용하면 됩니다.
+> 신청한 작업의 ID를 squeue 명령어를 통해 확인하기(대기열 현황)
+
+```shell
+squeue
+```
+> 예상 시작시간 확인하기
+
+```shell
+scontrol show job [JOB ID] | grep StartTime
+```
+>실행중인 모든 작업의 시작시간(StartTime), 종료시간(EndTime) 확인
+
+```shell
+scontrol show job | grep -e JobName -e StartTime
+```
 
 ## 개발 환경 구축
 현재 GPU 서버에서는 miniconda 환경과 singularity 환경을 지원하고 있습니다.
