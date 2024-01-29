@@ -26,8 +26,13 @@ meta:
 인하대학교 인공지능융합연구센터 (이하 ”AI 센터”)에 오신 것을 환영합니다. 저희 AI 센터는 최첨단 GPU 서버 센터를 구축하여 A100, A6000, A40 등의 고성능 컴퓨팅 자원을 인하대학교 학생 및 교수님들, 그리고 기업체 및 인천시민 여러분께 무상으로 제공하고 있습니다. 이를 통해 인공지능 연구와 개발에 필요한 모든 고성능 계산 작업을 지원하고자 합니다.
 <br/>작성된 튜토리얼을 통해 원활한 사용과 연구에 도움이 되기를 진심으로 바라겠습니다.
 
+<!-->
 <aside class="notice">
 AI 센터의 자원을 이용하시려면 먼저 [인하대학교 인공지능융합연구센터 홈페이지](https://aix.inha.ac.kr/)를 통해 계정을 신청하시기 바랍니다.
+</aside>
+<-->
+<aside class="notice">
+AI 센터의 자원을 이용하시려면 먼저 <a href='https://aix.inha.ac.kr/?page_id=4109&vid=1' target="_blank">인하대학교 인공지능융합연구센터 홈페이지</a>를 통해 계정을 신청하시기 바랍니다.
 </aside>
 
 공지 수신 및 기술적인 문제나 사용법에 대한 질문이 있으시면, [디스코드 채널](https://discord.gg/PyBkTDz4Mp)에 입장하여 연락주시기 바랍니다.
@@ -110,25 +115,28 @@ srun --gres=gpu:a40:2 -p p3 --time=2-00:00:00 -J cv_lab1 --pty bash
 
 ## miniconda 환경 설정
 
+> 설치 파일을 다운로드할 경로로 이동(to home directory)
 ```shell
-# 설치 파일을 다운로드할 경로로 이동(to home directory)
 cd ~
-
-# Miniconda 설치 파일 다운로드
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-
-# 설치 파일 실행
-bash Miniconda3-latest-Linux-x86_64.sh
-
-# Anaconda 설치 후 재접속
-exit
-
-# conda 환경 생성 예시
-conda create -n <환경 이름> python=<파이썬 버전>
-
-# conda 환경 실행
-conda activate <환경 이름>
 ```
+
+> Miniconda 설치 파일 다운로드
+```shell
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+```
+
+> 설치 파일 실행
+<code>bash Miniconda3-latest-Linux-x86_64.sh</code>
+
+> Anaconda 설치 후 재접속
+<code>exit</code>
+
+> conda 환경 생성 예시
+<code>conda create -n <환경 이름> python=<파이썬 버전></code>
+
+> conda 환경 실행
+<code>conda activate <환경 이름></code>
+
 <aside class="warning"> <i>conda: command not found</i> 오류 발생시 우측 예시와 같이 환경설정을 해야 함.</aside>
 
 ```shell
