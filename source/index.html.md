@@ -26,11 +26,6 @@ meta:
 인하대학교 인공지능융합연구센터 (이하 ”AI 센터”)에 오신 것을 환영합니다. 저희 AI 센터는 최첨단 GPU 서버 센터를 구축하여 A100, A6000, A40 등의 고성능 컴퓨팅 자원을 인하대학교 학생 및 교수님들, 그리고 기업체 및 인천시민 여러분께 무상으로 제공하고 있습니다. 이를 통해 인공지능 연구와 개발에 필요한 모든 고성능 계산 작업을 지원하고자 합니다.
 <br/>작성된 튜토리얼을 통해 원활한 사용과 연구에 도움이 되기를 진심으로 바라겠습니다.
 
-<!-->
-<aside class="notice">
-AI 센터의 자원을 이용하시려면 먼저 [인하대학교 인공지능융합연구센터 홈페이지](https://aix.inha.ac.kr/)를 통해 계정을 신청하시기 바랍니다.
-</aside>
-<-->
 <aside class="notice">
 AI 센터의 자원을 이용하시려면 먼저 <a href='https://aix.inha.ac.kr/?page_id=4109&vid=1' target="_blank">인하대학교 인공지능융합연구센터 홈페이지</a>를 통해 계정을 신청하시기 바랍니다.
 </aside>
@@ -116,47 +111,51 @@ srun --gres=gpu:a40:2 -p p3 --time=2-00:00:00 -J cv_lab1 --pty bash
 ## miniconda 환경 설정
 
 > 설치 파일을 다운로드할 경로로 이동(to home directory)
+
 ```shell
 cd ~
 ```
-
 > Miniconda 설치 파일 다운로드
+
 ```shell
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```
 
 > 설치 파일 실행
+
 <code>bash Miniconda3-latest-Linux-x86_64.sh</code>
-
 > Anaconda 설치 후 재접속
+
 <code>exit</code>
-
 > conda 환경 생성 예시
-<code>conda create -n <환경 이름> python=<파이썬 버전></code>
 
+<code>conda create -n <환경 이름> python=<파이썬 버전></code>
 > conda 환경 실행
+
 <code>conda activate <환경 이름></code>
 
 <aside class="warning"> <i>conda: command not found</i> 오류 발생시 우측 예시와 같이 환경설정을 해야 함.</aside>
 
-```shell
-#다음 명령어 수행 (conda 환경설정 오류가 발생했을 경우에만)
-vi ~/.bashrc
-#vi 편집기에서 입력모드(i)로 들어가서 파일끝에 다음 명령어 추가 후 저장(esc, :wq)
-export PATH=~/miniconda3/bin:$PATH
-#환경변수 설정 반영
-source ~/.bashrc
-```
+
+>다음 명령어 수행 (conda 환경설정 오류가 발생했을 경우에만)
+
+<code>vi ~/.bashrc</code>
+>vi 편집기에서 입력모드(i)로 들어가서 파일끝에 다음 명령어 추가 후 저장(esc, :wq)
+
+<code>export PATH=~/miniconda3/bin:$PATH</code>
+>환경변수 설정 반영
+
+<code>source ~/.bashrc</code>
 
 ## Jupyter notebook 실행
 할당받은 GPU 노드에서 IP를 알아 낸 후, jupyter notebook을 웹에 띄웁니다.
 
-```shell
-#다음 명령어 수행후, inet 165.246.***.*** 부분의 ip주소를 복사
-ifconfig
-#위에서 복사한 ip주소를 <165.246.***.***> 부분에 넣고 port번호는 10100~10109 중 하나로 설정
-jupyter-notebook --no-browser --ip=<165.246.***.***> --port=<port number>
-```
+>다음 명령어 수행후, inet 165.246.***.*** 부분의 ip주소를 복사
+
+<code>ifconfig</code>
+>위에서 복사한 ip주소를 <165.246.***.***> 부분에 넣고 port번호는 10100~10109 중 하나로 설정
+<code>jupyter-notebook --no-browser --ip=<165.246.***.***> --port=<port number></code>
+
 <aside class="warning">만약 port 번호를 10100으로 설정했는데 실행이 안될경우, ⭐숫자를 1씩 증가시켜가며⭐ 실행되는 port 번호를 사용하면 됩니다. 만약 모든 포트번호를 사용했는데 실행이 안되는 경우, 아래의 연락처로 연락주시면 감사하겠습니다.<br>문의처: 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr, 032-860-9472) </aside>
 
 ## singulairty Container 활용
