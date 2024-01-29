@@ -248,7 +248,7 @@ exit
     A6000 : sv4ka-[n1~n4] <br>
     A40 : sv8ka-[n1~n3] <br>
 
-> 1. Login node 접속 (port number : 22)
+> Login node 접속 (port number : 22)
 
 ```shell
 ssh [본인의 ID]@165.246.75.159
@@ -264,29 +264,29 @@ Data를 불러온 후, GPU로 data를 전송할 때 전처리과정을 거치는
 할당시, GPU Node별 최대 할당가능한 core수 이상 지정하지 않도록 유의하세요.
 </aside>
 
-> 2. GPU 할당
+> GPU 할당
 
 ```
 srun --gres=gpu:<type>:<number> --cpus-per-task=<할당받을 cpu core 수> -p <partition> --time=<time> -J <jobname> -w <GPU node 명칭> --pty bash
 ```
-> 3. Local 디렉토리 생성 및 데이터 복사 <br>
-  3-1. GPU Node 각각의 Local disk경로로 이동
+> Local 디렉토리 생성 및 데이터 복사 <br>
+> GPU Node 각각의 Local disk경로로 이동
 
 ```shell
 cd /raid
 ```
-> 3-2. 사용자 이름의 경로 생성
+> 사용자 이름의 경로 생성
 ```shell
 mkdir [user name]
 ```
 
-> 3-3. 자신의 home 경로에서 /raid/user_name 으로 데이터 복사
+> 자신의 home 경로에서 /raid/user_name 으로 데이터 복사
 
 ```shell
 cp -R /shared/home/[user name]/data /raid/[user name]
 ```
 
-> 3-4. 학습에 필요한 image file을 local disk로 복사
+> 학습에 필요한 image file을 local disk로 복사
 
 ```shell
 cp /shared/public/images/<image name> /raid/<user name>
@@ -316,10 +316,17 @@ cp /shared/public/images/<image name> /raid/<user name>
 - p 다음에 자신이 속한 partition, -w 다음에 원하는 gpu 명칭 (a100→a100, a40→sv8ka, a6000→sv4ka) <br>
 - 이후 cp 명령어를 사용하여 복사 (<code>cp -R /원본경로 /대상경로</code>)<br>
   예) <code>cp -R /shared/home/USER_NAME/data /raid/USER_NAME</code>
+
 <aside class="warning">
 학습에 사용할 pytorch나 tensorflow image파일도 복사해야합니다.
 </aside>
+<br>
+위의 문서 외의 추가적인 사용법은 아래 공식 API문서에서 확인하실 수 있습니다.
+<br>
+<a href='https://slurm.schedmd.com/documentation.html' target="_blank">Slurm Documentation</a> <br>
+<a href='https://apptainer.org/user-docs/master/index.html' target="_blank">Singularity Documentation</a>
+
 <aside class="success">
- <a href='https://slurm.schedmd.com/documentation.html' target="_blank">Slurm Documentation</a> <br>
-  <a href='https://apptainer.org/user-docs/master/index.html' target="_blank">Singularity Documentation</a>
+사용중 문의사항이 있을 경우, 언제든지 아래 연락처로 문의주시면 도와드리겠습니다. <br>
+인하대학교 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr, 032-860-9472)
 </aside>
