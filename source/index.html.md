@@ -170,6 +170,7 @@ source ~/.bashrc
 ifconfig
 ```
 >위에서 복사한 ip주소를 <165.246.***.***> 부분에 넣고 port번호는 10100~10109 중 하나로 설정
+
 ```shell
 jupyter-notebook --no-browser --ip=<165.246.***.***> --port=<port number>
 ```
@@ -197,8 +198,10 @@ ls
 
 ```shell
 singularity exec --nv /shared/public/images/<imagefile name> bash
+```
+>만약 이미지를 jupyter notebook으로 실행시키고 싶다면
 
-#만약 이미지를 jupyter notebook으로 실행시키고 싶다면
+```shell
 singularity exec --nv /shared/public/images/<imagefile name> jupyter notebook --no-browser --ip=<위에서 복사한 ip주소> --port=<위에서 설정한 포트번호>
 
 #singularity Container의 사용을 중단하고 싶다면
