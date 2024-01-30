@@ -363,6 +363,6 @@ cp /shared/public/images/<image name> /raid/<user name>
 <a href='https://apptainer.org/user-docs/master/index.html' target="_blank">Singularity Documentation</a>
 
 <aside class="success">
-사용중 문의사항이 있을 경우, 언제든지 아래 연락처로 문의주시면 도와드리겠습니다. <br>
-인하대학교 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr, 032-860-9472)
+사용중 문의사항이 있을 경우, 디스코드 혹은 아래의 메일로 연락주시면 감사드리겠습니다. <br>
+인하대학교 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr)
 </aside>
