@@ -145,6 +145,14 @@ scontrol show job | grep -e JobName -e StartTime
 
 ## miniconda 환경 설정
 
+<img src="./images/miniConda_setup.png" width="550px" title="아나콘다 설치" alt="Conda setup"></img>
+<br>
+<img src="./images/installation.png" width="550px" title="아나콘다 설치과정" alt="Conda setup2"><br>
+설치를 위해 Enter(기본 세팅으로 설치)입력 </img>
+<br>
+<img src="./images/install_2.png" width="550px" title="아나콘다 설치과정 2" alt="Conda setup3"><br>
+만약 설치 완료후 (base) 표시가 나오지않는다면 위의 그림처럼 실행</img>
+
 > 설치 파일을 다운로드할 경로로 이동(to home directory)
 
 ```shell
@@ -161,10 +169,10 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```shell
 bash Miniconda3-latest-Linux-x86_64.sh
 ```
-> Anaconda 설치 후 재접속
+> Anaconda 설치 후 bash shell환경 재설정
 
 ```shell
-exit
+source ~/.bashrc
 ```
 > conda 환경 생성 예시
 
