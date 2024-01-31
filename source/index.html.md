@@ -8,6 +8,7 @@ language_tabs: # must be one of https://github.com/rouge-ruby/rouge/wiki/List-of
 toc_footers:
   - <a href='https://aix.inha.ac.kr/' target="_blank">인하대학교 인공지능융합연구센터</a>
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
+  - Last updated on Jan 31
 
 includes:
   - errors
@@ -18,7 +19,7 @@ code_clipboard: true
 
 meta:
   - name: description
-    content: Documentation for the Kittn API
+    content: Documentation for 인공지능융합연구센터
 ---
 
 # 소개
