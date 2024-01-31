@@ -514,6 +514,14 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 <p>현재 GPU 서버에서는 miniconda 환경과 singularity 환경을 지원하고 있습니다.
 <br>별도의 docker환경은 제공하지 않지만, <a href="#singulairty-container">singularity image 변환</a>을 통해 docker image를 사용하실 수 있습니다.</p>
 <h2 id='miniconda'>miniconda 환경 설정</h2>
+<p><img src="./images/miniConda_setup.png" width="550px" title="아나콘다 설치" alt="Conda setup"></img>
+<br>
+<img src="./images/installation.png" width="550px" title="아나콘다 설치과정" alt="Conda setup2"><br>
+설치를 위해 Enter(기본 세팅으로 설치)입력 </img>
+<br>
+<img src="./images/install_2.png" width="550px" title="아나콘다 설치과정 2" alt="Conda setup3"><br>
+만약 설치 완료후 (base) 표시가 나오지않는다면 위의 그림처럼 실행</img></p>
+
 <blockquote>
 <p>설치 파일을 다운로드할 경로로 이동(to home directory)</p>
 </blockquote>
@@ -530,9 +538,9 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>bash Miniconda3-latest-Linux-x86_64.sh
 </code></pre></div>
 <blockquote>
-<p>Anaconda 설치 후 재접속</p>
+<p>Anaconda 설치 후 bash shell환경 재설정</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">exit</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">source</span> ~/.bashrc
 </code></pre></div>
 <blockquote>
 <p>conda 환경 생성 예시</p>
