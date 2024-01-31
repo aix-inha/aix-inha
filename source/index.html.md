@@ -69,7 +69,7 @@ ssh "yourID"@165.246.75.159
 사용자는 SSH 연결을 통해 Login Node 에 접속한 후, Slurm 시스템에게 GPU 자원 할당을 신청 할 수 있습니다.
 <br/> SSH 연결은 Windows PowerShell, Ubuntu Terminal, MobaXterm 등의 프로그램을 통해 사용 할 수 있습니다.
 <br>
-<img src="./images/server접속.png" width="550px" title="ssh 연결화면" alt="ssh 연결화면"></img>
+<img src="./images/serverSSH.png" width="550px" title="ssh 연결화면" alt="ssh 연결화면"></img>
 
 
 ## 코드 및 데이터 업로드
