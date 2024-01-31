@@ -139,6 +139,43 @@ scontrol show job [JOB ID] | grep StartTime
 scontrol show job | grep -e JobName -e StartTime
 ```
 
+## tmux를 이용한 세션유지
+<code>srun</code> 명령어를 사용하여 자원을 받고나서 세션을 종료하면, 자원도 자동으로 반환됩니다. 이를 방지하고싶다면, <code>tmux</code> 또는 <code>screen</code>명령어로 세션을 유지할 수 있습니다.
+
+> tmux 실행
+
+```shell
+tmux
+```
+
+<img src="./images/tmux.png" width="500px" title="tmux screen" alt="tmux 화면"></img>
+
+> tmux 세션 유지 상태로 나가기 (백그라운드에서 실행시키고 싶은경우)
+
+```shell
+ctrl + b 를 누른후, d키를 누르기
+```
+
+> tmux 세션 리스트 확인
+
+```shell
+tmux ls
+```
+
+> tmux 목록중 원하는 세션에 다시 접속하기
+
+```shell
+tmux attach-session -t <session number>
+```
+
+> tmux session을 완전히 종료하기
+
+```shell
+tmux kill-session -t <session number>
+```
+
+<img src="./images/tmux_ex.png" title="tmux cmd" alt="tmux 관련 명령어"></img>
+
 ## 개발 환경 구축
 현재 GPU 서버에서는 miniconda 환경과 singularity 환경을 지원하고 있습니다.
 <br>별도의 docker환경은 제공하지 않지만, [singularity image 변환](#singulairty-container)을 통해 docker image를 사용하실 수 있습니다.
