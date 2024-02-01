@@ -140,6 +140,8 @@ scontrol show job [JOB ID] | grep StartTime
 scontrol show job | grep -e JobName -e StartTime
 ```
 
+# 심화 튜토리얼
+
 ## tmux를 이용한 세션유지
 <code>srun</code> 명령어를 사용하여 자원을 받고나서 세션을 종료하면, 자원도 자동으로 반환됩니다. 이를 방지하고싶다면, <code>tmux</code> 또는 <code>screen</code>명령어로 세션을 유지할 수 있습니다.
 
