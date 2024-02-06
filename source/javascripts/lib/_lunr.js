@@ -1926,11 +1926,22 @@ lunr.Index = function (attrs) {
  * @returns {lunr.Index~Result[]}
  */
 lunr.Index.prototype.search = function (queryString) {
+  // 사용자의 입력에 와일드카드(*)를 추가하여 부분 일치 검색을 허용
+  var modifiedQueryString = queryString + '*';
+
+  return this.query(function (query) {
+    var parser = new lunr.QueryParser(modifiedQueryString, query)
+    parser.parse()
+  })
+}
+/**
+lunr.Index.prototype.search = function (queryString) {
   return this.query(function (query) {
     var parser = new lunr.QueryParser(queryString, query)
     parser.parse()
   })
 }
+*/
 
 /**
  * A query builder callback provides a query object to be used to express
