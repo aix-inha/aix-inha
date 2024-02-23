@@ -122,6 +122,7 @@ srun --gres=gpu:a40:2 -p p3 --time=2-00:00:00 -J cv_lab1 --pty bash
 
 <img src="./images/alloc_wait.png" width="550px" title="할당 대기" alt="wait for Allocation"><br>사용자가 많을 경우, 위와 같이 할당대기중이라는 안내가 나옴.</img>
 
+
 ### 대기열 상태 확인
 <code>srun</code> 또는 <code>sbatch</code>로 신청한 자원이 이미 사용되고 있을경우, 대기열에 들어갑니다. 이때 대기열을 확인하고싶다면 우측 명령어를 사용하면 됩니다.
 > 신청한 작업의 ID를 squeue 명령어를 통해 확인하기(대기열 현황)
@@ -139,6 +140,8 @@ scontrol show job [JOB ID] | grep StartTime
 ```shell
 scontrol show job | grep -e JobName -e StartTime
 ```
+
+<img src="./images/squeue.png" width="550px" title="squeue 화면" alt="checking queues"><br>squeue 화면</img>
 
 # 심화 튜토리얼
 
@@ -251,6 +254,9 @@ source ~/.bashrc
 ```shell
 ifconfig
 ```
+
+<img src="./images/ifconfig.png" width="550px" title="ip주소 확인" alt="check for ip addr">빨간색 표시의 주소를 복사</img>
+
 >위에서 복사한 ip주소를 <165.246.***.***> 부분에 넣고 port번호는 10100~10109 중 하나로 설정
 
 ```shell
