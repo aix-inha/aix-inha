@@ -141,7 +141,7 @@ scontrol show job [JOB ID] | grep StartTime
 scontrol show job | grep -e JobName -e StartTime
 ```
 
-<img src="./images/squeue.png" width="550px" title="squeue 화면" alt="checking queues"><br>squeue 화면</img>
+<img src="./images/squeue.PNG" width="550px" title="squeue 화면" alt="checking queues"><br>squeue 화면</img>
 
 # 심화 튜토리얼
 
@@ -255,7 +255,7 @@ source ~/.bashrc
 ifconfig
 ```
 
-<img src="./images/ifconfig.png" width="550px" title="ip주소 확인" alt="check for ip addr">빨간색 표시의 주소를 복사</img>
+<img src="./images/ifconfig.PNG" width="550px" title="ip주소 확인" alt="check for ip addr">빨간색 표시의 주소를 복사</img>
 
 >위에서 복사한 ip주소를 <165.246.***.***> 부분에 넣고 port번호는 10100~10109 중 하나로 설정
 
