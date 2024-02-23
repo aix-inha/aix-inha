@@ -249,18 +249,18 @@ source ~/.bashrc
 ## Jupyter notebook 실행
 할당받은 GPU 노드에서 IP를 알아 낸 후, jupyter notebook을 웹에 띄웁니다.
 
->다음 명령어 수행후, inet 165.246.***.*** 부분의 ip주소를 복사
+>다음 명령어 수행후, inet 165.2**.***.*** 부분의 ip주소를 복사
 
 ```shell
 ifconfig
 ```
 
-<img src="./images/ifconfig.PNG" width="550px" title="ip주소 확인" alt="check for ip addr">빨간색 표시의 주소를 복사</img>
+<img src="./images/ifconfig.PNG" width="550px" title="ip주소 확인" alt="check for ip addr"><br>사용자화면에서, 빨간색 표시 영역에 해당되는 주소(165로 시작)를 복사</img>
 
->위에서 복사한 ip주소를 <165.246.***.***> 부분에 넣고 port번호는 10100~10109 중 하나로 설정
+>위에서 복사한 ip주소를 <165.2**.***.***> 부분에 넣고 port번호는 10100~10109 중 하나로 설정
 
 ```shell
-jupyter-notebook --no-browser --ip=<165.246.***.***> --port=<port number>
+jupyter-notebook --no-browser --ip=<165.2**.***.***> --port=<port number>
 ```
 
 <aside class="warning">만약 port 번호를 10100으로 설정했는데 실행이 안될경우, ⭐숫자를 1씩 증가시켜가며⭐ 실행되는 port 번호를 사용하면 됩니다. 만약 모든 포트번호를 사용했는데 실행이 안되는 경우, 아래의 연락처로 연락주시면 감사하겠습니다.<br>문의처: 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr, 032-860-9472) </aside>
