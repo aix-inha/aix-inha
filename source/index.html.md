@@ -61,10 +61,10 @@ SSH 로그인을 통한 서버 접속 (Login Node) -> 코드 및 데이터 업�
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GX4FgkJ2sRY?si=yDdse6TVn2HbKqlB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="padding-left: 30px;"></iframe>
 
 ## GPU 서버 접속
-> "yourID"를 본인의 ID로 입력하여 SSH 연결하시길 바랍니다.
+> 본인의 ID로 입력하여 SSH 연결하시길 바랍니다. 만약 본인의 ID가 "Gildong"이면,
 
 ```shell
-ssh "yourID"@165.246.75.159
+ssh Gildong@165.246.75.159
 ```
 
 사용자는 SSH 연결을 통해 Login Node 에 접속한 후, Slurm 시스템에게 GPU 자원 할당을 신청 할 수 있습니다.
@@ -113,6 +113,14 @@ srun --gres=gpu:a40:2 -p p3 --time=2-00:00:00 -J cv_lab1 --pty bash
 
 로그인을 한 후, 명령어로 GPU 할당 요청이 가능합니다.<br/>
 `srun --gres=gpu:<type>:<number> -p <partition> --time=<time> -J <jobname> --cpus-per-core <int> --pty bash`
+
+| 옵션 이름                | 구분      | 설명            | 상세                                                                                   |
+|-----------------------|---------|---------------|--------------------------------------------------------------------------------------|
+| `--gres=gpu:<type>:<number>` | GPU 선택   | GPU 타입 및 개수를 선택 | `<type>` : a100, a6000, a40 <br> `<number>` : 1 ~ 4 사이의 정수(a40은 3까지)          |
+| `-p <partition>`          | 파티션 선택 | 사용자마다 파티션 지정됨 | `<partition>` : p1, p2, p3 <br> 아래 명령어로 자신이 속한 파티션 확인 <br> `sacctmgr show assoc format=User,Partition where user=\`whoami\`` |
+| `--time=<time>`           | 사용 시간 설정 | 사용 시간을 `<time>`만큼 지정 | 7일 (7-00:00:00) 또는 168시간 (168:00:00) 이하의 시간                                       |
+| `-J <jobname>`            | 작업 이름 설정 | 작업의 이름을 `<jobname>`으로 설정 |                                                                                      |
+| `--mem <memory size>`     | 메모리 설정  | 사용하고자 하는 memory 자원 크기를 설정 | `--mem 8G` 와 같이 설정할 수 있음.                                                      |
 
 - 자원 할당이 되었을경우
 
@@ -182,7 +190,117 @@ tmux kill-session -t <session number>
 
 <img src="./images/tmux_ex.png" title="tmux cmd" alt="tmux 관련 명령어"></img>
 
-## 개발 환경 구축
+## Jupyter notebook 실행
+할당받은 GPU 노드에서 IP를 알아 낸 후, jupyter notebook을 웹에 띄웁니다.
+
+>다음 명령어 수행후, inet 165.2**.***.*** 부분의 ip주소를 복사
+
+```shell
+ifconfig
+```
+
+<img src="./images/ifconfig.PNG" width="550px" title="ip주소 확인" alt="check for ip addr"><br>사용자화면에서, 빨간색 표시 영역에 해당되는 주소(165로 시작)를 복사</img>
+
+>위에서 복사한 ip주소를 <165.2**.***.***> 부분에 넣고 port번호는 10100~10109 중 하나로 설정
+
+```shell
+jupyter-notebook --no-browser --ip=<165.2**.***.***> --port=<port number>
+```
+
+<aside class="warning">만약 port 번호를 10100으로 설정했는데 실행이 안될경우, ⭐숫자를 1씩 증가시켜가며⭐ 실행되는 port 번호를 사용하면 됩니다. 만약 모든 포트번호를 사용했는데 실행이 안되는 경우, 아래의 연락처로 연락주시면 감사하겠습니다.<br>문의처: 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr, 032-860-9472) </aside>
+
+
+## Local Disk 활용법
+
+학습 데이터의 크기가 클 경우, 네트워크 병목 현상으로 인하여 학습이 지연될 수 있습니다. 이런 경우, 각각의 GPU Node의 Local Disk를 이용하여 학습한다면 더 빠른 속도로 학습할 수 있습니다.
+
+ 
+  - 각 GPU 별 Node 명칭 <br>
+    A100 : a100-[n1~n4] <br>
+    A6000 : sv4ka-[n1~n4] <br>
+    A40 : sv8ka-[n1~n3] <br>
+
+> Login node 접속 (port number : 22)
+
+```shell
+ssh [본인의 ID]@165.246.75.159
+```
+<aside class="notice">
+<code>--cpus-per-task</code> option을 사용해서 할당받을 Cpu core의 개수를 지정할 수 있습니다. <br>
+각 GPU마다 <b>최대로 지정할 수 있는</b> CPU core수는 다릅니다. A100은 최대 20개, A6000은 최대 6개, A40은 최대 10개까지 할당받을 수 있습니다. <br>
+만약 a40 GPU를 4개 할당받았다면, CPU는 최대 40개까지 할당받을 수 있습니다. <br>
+Data를 불러온 후, GPU로 data를 전송할 때 전처리과정을 거치는데, 이때 CPU자원이 많을수록 처리속도가 빨라집니다.
+</aside>
+<aside class="warning">
+할당시, GPU Node별 최대 할당가능한 core수 이상 지정하지 않도록 유의하세요.
+</aside>
+
+### local 디렉토리 생성 및 데이터 복사
+만약 이전에 저장한 GPU Node에서 작업하고 싶다면, <code>-w [GPU node 이름]</code> option을 이용해서 지정할 수 있습니다.
+
+> 할당받은 GPU Node 각각의 Local disk경로로 이동
+
+```shell
+cd /raid
+```
+> 사용자 이름의 경로 생성
+
+```shell
+mkdir [user name]
+```
+
+> 자신의 home 경로에서 /raid/user_name 으로 데이터 복사
+
+```shell
+cp -R /shared/home/[user name]/data /raid/[user name]
+```
+
+> 학습에 필요한 image file을 local disk로 복사
+
+```shell
+cp /shared/public/images/<image name> /raid/<user name>
+```
+
+### Singularity 실행시 Disk mount
+- Singularity 실행시, <code>-B /raid</code> 옵션을 추가해 local disk를 mount 해줍니다.
+- 만약 위의 옵션을 사용하지 않으면 singularity환경에서 <code>/raid</code> 경로를 볼 수 없습니다. <br>
+<code>singularity exec -B /raid --nv /raid/[user name]/[image name] bash </code>
+<br>
+- local disk에 Mount가 잘 되었는지 확인하기 (singularity 접속상태에서)<br>
+<code>ll /raid</code>
+- Pytorch import 여부 확인 <br>
+<code> python3 </code> 입력 후, <code>import torch</code> 입력시 이상이 없는지 확인.
+
+### 작업 완료 후 결과물 이동방법
+모든 GPU node의 Local Disk의 경로는 /raid 로 되어있습니다. 그리고 각 GPU node의 DISK용량은 약 3TB 이상(GPU node별 약간의 차이가 있음)입니다. <br>
+계정 당 <b>최대 300GB</b>를 사용 할 수 있으며, 초과 사용 시, 다른 사용자를 위해서 디렉토리의 데이터는 <strong style="color:red;">삭제</strong>될 수 있습니다.
+<aside class="warning">
+중요한 모델 파일 및 코드는 항상 백업을 부탁드립니다.
+</aside>
+
+### CPU만 할당받아 특정 Node에 접근하기
+만약, a40 GPU <b>3번 node</b>에 GPU할당 없이 접속하여 데이터를 가져오고싶다면 다음 명령어 사용.<br>
+<code>srun —-mem=8G -p p1 -w sv8ka-n3 —-pty bash </code>
+
+- p 다음에 자신이 속한 partition, -w 다음에 원하는 gpu 명칭 (a100→a100, a40→sv8ka, a6000→sv4ka) <br>
+- 이후 cp 명령어를 사용하여 복사 (<code>cp -R /원본경로 /대상경로</code>)<br>
+  예) <code>cp -R /shared/home/USER_NAME/data /raid/USER_NAME</code>
+
+<aside class="warning">
+학습에 사용할 pytorch나 tensorflow image파일도 복사해야합니다.
+</aside>
+<br>
+위의 문서 외의 추가적인 사용법은 아래 공식 API문서에서 확인하실 수 있습니다.
+<br>
+<a href='https://slurm.schedmd.com/documentation.html' target="_blank">Slurm Documentation</a> <br>
+<a href='https://apptainer.org/user-docs/master/index.html' target="_blank">Singularity Documentation</a>
+
+<aside class="success">
+사용중 문의사항이 있을 경우, 디스코드 혹은 아래의 메일로 연락주시면 감사드리겠습니다. <br>
+인하대학교 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr)
+</aside>
+
+# 개발 환경 구축
 현재 GPU 서버에서는 miniconda 환경과 singularity 환경을 지원하고 있습니다.
 <br>별도의 docker환경은 제공하지 않지만, [singularity image 변환](#singulairty-container)을 통해 docker image를 사용하실 수 있습니다.
 
@@ -246,25 +364,6 @@ export PATH=~/miniconda3/bin:$PATH
 source ~/.bashrc
 ```
 
-## Jupyter notebook 실행
-할당받은 GPU 노드에서 IP를 알아 낸 후, jupyter notebook을 웹에 띄웁니다.
-
->다음 명령어 수행후, inet 165.2**.***.*** 부분의 ip주소를 복사
-
-```shell
-ifconfig
-```
-
-<img src="./images/ifconfig.PNG" width="550px" title="ip주소 확인" alt="check for ip addr"><br>사용자화면에서, 빨간색 표시 영역에 해당되는 주소(165로 시작)를 복사</img>
-
->위에서 복사한 ip주소를 <165.2**.***.***> 부분에 넣고 port번호는 10100~10109 중 하나로 설정
-
-```shell
-jupyter-notebook --no-browser --ip=<165.2**.***.***> --port=<port number>
-```
-
-<aside class="warning">만약 port 번호를 10100으로 설정했는데 실행이 안될경우, ⭐숫자를 1씩 증가시켜가며⭐ 실행되는 port 번호를 사용하면 됩니다. 만약 모든 포트번호를 사용했는데 실행이 안되는 경우, 아래의 연락처로 연락주시면 감사하겠습니다.<br>문의처: 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr, 032-860-9472) </aside>
-
 ## singulairty Container 활용
 <aside class="notice">
 도커 이미지를 Singularity 이미지로 간편하게 변환하여 사용할 수 있습니다.
@@ -324,100 +423,3 @@ exit
 
 - Docker 이미지 저장
 - Singularity 명령어 실행
-
-
-## Local Disk 활용법
-
-학습 데이터의 크기가 클 경우, 네트워크 병목 현상으로 인하여 학습이 지연될 수 있습니다. 이런 경우, 각각의 GPU Node의 Local Disk를 이용하여 학습한다면 더 빠른 속도로 학습할 수 있습니다.
-
- 
-  - 각 GPU 별 Node 명칭 <br>
-    A100 : a100-[n1~n4] <br>
-    A6000 : sv4ka-[n1~n4] <br>
-    A40 : sv8ka-[n1~n3] <br>
-
-> Login node 접속 (port number : 22)
-
-```shell
-ssh [본인의 ID]@165.246.75.159
-```
-<aside class="notice">
-<code>--cpus-per-task</code> option을 사용해서 할당받을 Cpu core의 개수를 지정할 수 있습니다. <br>
-각 GPU마다 <b>최대로 지정할 수 있는</b> CPU core수는 다릅니다. A100은 최대 20개, A6000은 최대 6개, A40은 최대 10개까지 할당받을 수 있습니다. <br>
-만약 a40 GPU를 4개 할당받았다면, CPU는 최대 40개까지 할당받을 수 있습니다. <br>
-Data를 불러온 후, GPU로 data를 전송할 때 전처리과정을 거치는데, 이때 CPU자원이 많을수록 처리속도가 빨라집니다.
-</aside>
-<aside class="warning">
-할당시, GPU Node별 최대 할당가능한 core수 이상 지정하지 않도록 유의하세요.
-</aside>
-
-> GPU 할당
-
-```
-srun --gres=gpu:<type>:<number> --cpus-per-task=<할당받을 cpu core 수> -p <partition> --time=<time> -J <jobname> -w <GPU node 명칭> --pty bash
-```
-
-### local 디렉토리 생성 및 데이터 복사
-만약 이전에 저장한 GPU Node에서 작업하고 싶다면, <code>-w [GPU node 이름]</code> option을 이용해서 지정할 수 있습니다.
-
-> GPU Node 각각의 Local disk경로로 이동
-
-```shell
-cd /raid
-```
-> 사용자 이름의 경로 생성
-
-```shell
-mkdir [user name]
-```
-
-> 자신의 home 경로에서 /raid/user_name 으로 데이터 복사
-
-```shell
-cp -R /shared/home/[user name]/data /raid/[user name]
-```
-
-> 학습에 필요한 image file을 local disk로 복사
-
-```shell
-cp /shared/public/images/<image name> /raid/<user name>
-```
-
-### Singularity 실행시 Disk mount
-- Singularity 실행시, <code>-B /raid</code> 옵션을 추가해 local disk를 mount 해줍니다.
-- 만약 위의 옵션을 사용하지 않으면 singularity환경에서 <code>/raid</code> 경로를 볼 수 없습니다. <br>
-<code>singularity exec -B /raid --nv /raid/[user name]/[image name] bash </code>
-<br>
-- local disk에 Mount가 잘 되었는지 확인하기 (singularity 접속상태에서)<br>
-<code>ll /raid</code>
-- Pytorch import 여부 확인 <br>
-<code> python3 </code> 입력 후, <code>import torch</code> 입력시 이상이 없는지 확인.
-
-### 작업 완료 후 결과물 이동방법
-모든 GPU node의 Local Disk의 경로는 /raid 로 되어있습니다. 그리고 각 GPU node의 DISK용량은 약 3TB 이상(GPU node별 약간의 차이가 있음)입니다. <br>
-계정 당 <b>최대 300GB</b>를 사용 할 수 있으며, 초과 사용 시, 다른 사용자를 위해서 디렉토리의 데이터는 <strong style="color:red;">삭제</strong>될 수 있습니다.
-<aside class="warning">
-중요한 모델 파일 및 코드는 항상 백업을 부탁드립니다.
-</aside>
-
-### CPU만 할당받아 특정 Node에 접근하기
-만약, a40 GPU <b>3번 node</b>에 GPU할당 없이 접속하여 데이터를 가져오고싶다면 다음 명령어 사용.<br>
-<code>srun --gres=gpu:0 —-cpus-per-task=10 —-mem=16G -p p1 -w sv8ka-n3 —-pty bash </code>
-
-- p 다음에 자신이 속한 partition, -w 다음에 원하는 gpu 명칭 (a100→a100, a40→sv8ka, a6000→sv4ka) <br>
-- 이후 cp 명령어를 사용하여 복사 (<code>cp -R /원본경로 /대상경로</code>)<br>
-  예) <code>cp -R /shared/home/USER_NAME/data /raid/USER_NAME</code>
-
-<aside class="warning">
-학습에 사용할 pytorch나 tensorflow image파일도 복사해야합니다.
-</aside>
-<br>
-위의 문서 외의 추가적인 사용법은 아래 공식 API문서에서 확인하실 수 있습니다.
-<br>
-<a href='https://slurm.schedmd.com/documentation.html' target="_blank">Slurm Documentation</a> <br>
-<a href='https://apptainer.org/user-docs/master/index.html' target="_blank">Singularity Documentation</a>
-
-<aside class="success">
-사용중 문의사항이 있을 경우, 디스코드 혹은 아래의 메일로 연락주시면 감사드리겠습니다. <br>
-인하대학교 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr)
-</aside>
