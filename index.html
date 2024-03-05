@@ -511,7 +511,7 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 <td><code>-p &lt;partition&gt;</code></td>
 <td>파티션 선택</td>
 <td>사용자마다 파티션 지정됨</td>
-<td><code>&lt;partition&gt;</code> : p1, p2, p3 <br> 아래 명령어로 자신이 속한 파티션 확인 <br> <code>sacctmgr show assoc format=User,Partition where user=\</code>whoami``</td>
+<td><code>&lt;partition&gt;</code> : p1, p2, p3 <br> 아래 명령어로 자신이 속한 파티션 확인 <br> <code>sacctmgr show assoc format=User,Partition where user=`whoami`</code></td>
 </tr>
 <tr>
 <td><code>--time=&lt;time&gt;</code></td>
