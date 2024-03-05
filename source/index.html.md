@@ -114,10 +114,10 @@ srun --gres=gpu:a40:2 -p p3 --time=2-00:00:00 -J cv_lab1 --pty bash
 로그인을 한 후, 명령어로 GPU 할당 요청이 가능합니다.<br/>
 `srun --gres=gpu:<type>:<number> -p <partition> --time=<time> -J <jobname> --cpus-per-core <int> --pty bash`
 
-| 옵션 이름                | 구분      | 설명            | 상세                                                                                   |
-|-----------------------|---------|---------------|--------------------------------------------------------------------------------------|
+| 옵션 이름                | 구분      | 설명          | 상세                                                                              |
+|-----------------------|---------|-------------|---------------------------------------------------------------------------------|
 | `--gres=gpu:<type>:<number>` | GPU 선택   | GPU 타입 및 개수를 선택 | `<type>` : a100, a6000, a40 <br> `<number>` : 1 ~ 4 사이의 정수(a40은 3까지)          |
-| `-p <partition>`          | 파티션 선택 | 사용자마다 파티션 지정됨 | `<partition>` : p1, p2, p3 <br> 아래 명령어로 자신이 속한 파티션 확인 <br> `sacctmgr show assoc format=User,Partition where user=\`whoami\`` |
+| `-p <partition>`          | 파티션 선택 | 사용자마다 파티션 지정됨 | `<partition>` : p1, p2, p3 <br> 아래 명령어로 자신이 속한 파티션 확인 <br> <code>sacctmgr show assoc format=User,Partition where user=\`whoami\`</code> |
 | `--time=<time>`           | 사용 시간 설정 | 사용 시간을 `<time>`만큼 지정 | 7일 (7-00:00:00) 또는 168시간 (168:00:00) 이하의 시간                                       |
 | `-J <jobname>`            | 작업 이름 설정 | 작업의 이름을 `<jobname>`으로 설정 |                                                                                      |
 | `--mem <memory size>`     | 메모리 설정  | 사용하고자 하는 memory 자원 크기를 설정 | `--mem 8G` 와 같이 설정할 수 있음.                                                      |
