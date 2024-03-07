@@ -102,10 +102,10 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 ```shell
 srun --gres=gpu:a100:2 -p p1 --time=1-00:00:00 -J cv_lab1 --cpus-per-task=20 --pty bash
 ```
-> 파티션 p2의 사용자가 A6000 GPU 2개를 12시간 동안 요청하기
+> 파티션 p2의 사용자가 sv4ka-n2 노드의 A6000 GPU 2개를 12시간 동안 요청하기
 
 ```shell
-srun --gres=gpu:a6000:2 -p p2 --time=12:00:00 -J cv_lab1 --pty bash
+srun --gres=gpu:a6000:2 -p p2 --time=12:00:00 -J cv_lab1 -w sv4ka-n2 --pty bash
 ```
 
 > 파티션 p3의 사용자가 A40 GPU 2개를 2일 동안 요청하기
@@ -115,7 +115,7 @@ srun --gres=gpu:a40:2 -p p3 --time=2-00:00:00 -J cv_lab1 --pty bash
 ```
 
 로그인을 한 후, 명령어로 GPU 할당 요청이 가능합니다.<br/>
-`srun --gres=gpu:<type>:<number> -p <partition> --time=<time> -J <jobname> --cpus-per-core <int> --pty bash`
+`srun --gres=gpu:<type>:<number> -w <node name> -p <partition> --time=<time> -J <jobname> --cpus-per-core <int> --pty bash`
 
 | 옵션 이름                | 구분      | 설명          | 상세                                                                              |
 |-----------------------|---------|-------------|---------------------------------------------------------------------------------|
@@ -124,6 +124,7 @@ srun --gres=gpu:a40:2 -p p3 --time=2-00:00:00 -J cv_lab1 --pty bash
 | `--time=<time>`           | 사용 시간 설정 | 사용 시간을 `<time>`만큼 지정 | 7일 (7-00:00:00) 또는 168시간 (168:00:00) 이하의 시간                                       |
 | `-J <jobname>`            | 작업 이름 설정 | 작업의 이름을 `<jobname>`으로 설정 |                                                                                      |
 | `--mem <memory size>`     | 메모리 설정  | 사용하고자 하는 memory 자원 크기를 설정 | `--mem 8G` 와 같이 설정할 수 있음.                                                      |
+| `-w <node name>`     | GPU 노드 설정  | 신청하고자 하는 노드 직접 지정  | `A100`: a100-n1, a100-n2, a100-n3, a100-n4 <br> `A6000`: sv4ka-n1, sv4ka-n2, sv4ka-n3, sv4ka-n4 <br> `A40`: sv8ka-n1, sv8ka-n2, sv8ka-n3 <br> (파티션별 신청 가능한 자원 상이 ※사용정책 참고)                                                     |
 
 - 자원 할당이 되었을경우
 
