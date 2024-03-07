@@ -483,9 +483,9 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>srun <span class="nt">--gres</span><span class="o">=</span>gpu:a100:2 <span class="nt">-p</span> p1 <span class="nt">--time</span><span class="o">=</span>1-00:00:00 <span class="nt">-J</span> cv_lab1 <span class="nt">--cpus-per-task</span><span class="o">=</span>20 <span class="nt">--pty</span> bash
 </code></pre></div>
 <blockquote>
-<p>파티션 p2의 사용자가 A6000 GPU 2개를 12시간 동안 요청하기</p>
+<p>파티션 p2의 사용자가 sv4ka-n2 노드의 A6000 GPU 2개를 12시간 동안 요청하기</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>srun <span class="nt">--gres</span><span class="o">=</span>gpu:a6000:2 <span class="nt">-p</span> p2 <span class="nt">--time</span><span class="o">=</span>12:00:00 <span class="nt">-J</span> cv_lab1 <span class="nt">--pty</span> bash
+<div class="highlight"><pre class="highlight shell tab-shell"><code>srun <span class="nt">--gres</span><span class="o">=</span>gpu:a6000:2 <span class="nt">-p</span> p2 <span class="nt">--time</span><span class="o">=</span>12:00:00 <span class="nt">-J</span> cv_lab1 <span class="nt">-w</span> sv4ka-n2 <span class="nt">--pty</span> bash
 </code></pre></div>
 <blockquote>
 <p>파티션 p3의 사용자가 A40 GPU 2개를 2일 동안 요청하기</p>
@@ -493,7 +493,7 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>srun <span class="nt">--gres</span><span class="o">=</span>gpu:a40:2 <span class="nt">-p</span> p3 <span class="nt">--time</span><span class="o">=</span>2-00:00:00 <span class="nt">-J</span> cv_lab1 <span class="nt">--pty</span> bash
 </code></pre></div>
 <p>로그인을 한 후, 명령어로 GPU 할당 요청이 가능합니다.<br/>
-<code>srun --gres=gpu:&lt;type&gt;:&lt;number&gt; -p &lt;partition&gt; --time=&lt;time&gt; -J &lt;jobname&gt; --cpus-per-core &lt;int&gt; --pty bash</code></p>
+<code>srun --gres=gpu:&lt;type&gt;:&lt;number&gt; -w &lt;node name&gt; -p &lt;partition&gt; --time=&lt;time&gt; -J &lt;jobname&gt; --cpus-per-core &lt;int&gt; --pty bash</code></p>
 
 <table><thead>
 <tr>
@@ -532,6 +532,12 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 <td>메모리 설정</td>
 <td>사용하고자 하는 memory 자원 크기를 설정</td>
 <td><code>--mem 8G</code> 와 같이 설정할 수 있음.</td>
+</tr>
+<tr>
+<td><code>-w &lt;node name&gt;</code></td>
+<td>GPU 노드 설정</td>
+<td>신청하고자 하는 노드 직접 지정</td>
+<td><code>A100</code>: a100-n1, a100-n2, a100-n3, a100-n4 <br> <code>A6000</code>: sv4ka-n1, sv4ka-n2, sv4ka-n3, sv4ka-n4 <br> <code>A40</code>: sv8ka-n1, sv8ka-n2, sv8ka-n3 <br> (파티션별 신청 가능한 자원 상이 ※사용정책 참고)</td>
 </tr>
 </tbody></table>
 
