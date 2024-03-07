@@ -31,8 +31,10 @@ meta:
 AI 센터의 자원을 이용하시려면 먼저 <a href='https://aix.inha.ac.kr/?page_id=4109&vid=1' target="_blank">인하대학교 인공지능융합연구센터 홈페이지</a>를 통해 계정을 신청하시기 바랍니다.
 </aside>
 
-공지 수신 및 기술적인 문제나 사용법에 대한 질문이 있으시면, [디스코드 채널](https://discord.gg/PyBkTDz4Mp)에 입장하여 연락주시기 바랍니다.
-<br/>추가로, 긴급 공지 사항을 위해 만들어진 [카카오오픈채팅방](https://open.kakao.com/o/gNVmxJof)에 <strong style="color:red">반드시</strong> 참여를 부탁드립니다.
+<aside class="notice">
+공지 수신 및 기술적인 문제나 사용법에 대한 질문이 있으시면, <a href='https://discord.gg/PyBkTDz4Mp' target="_blank">디스코드 채널</a>에 입장하여 연락주시기 바랍니다.
+<br/>추가로, 긴급 공지 사항을 위해 만들어진 <a href='https://open.kakao.com/o/gNVmxJof' target="_blank">카카오오픈채팅방</a>에 <strong style="color:red">반드시</strong> 참여를 부탁드립니다.
+</aside>
 
 ### System Overview
 Simple Linux Utility for Resource Management (이하 “Slurm”) 을 통해 GPU 자원을 제공하고 있습니다. Slurm은 클러스터 환경의 자원 관리 시스템으로, 사용자의 요청에 컴퓨팅 자원을 할당합니다.  
