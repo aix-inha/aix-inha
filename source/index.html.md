@@ -41,7 +41,8 @@ Simple Linux Utility for Resource Management (이하 “Slurm”) 을 통해 GPU
 <br/> 사용자는 자원을 할당 받은 후, Conda와 Singularity 컨테이너 솔루션을 통해 사용자가 원하는 개발 환경에서 컴퓨팅 자원을 사용 할 수 있습니다.
 
 자원이 모두 사용 중일 때는 대기를 해야하며, 자원이 확보될 시 Slurm이 대기하고 있던 사용자에게 할당해줍니다. <br/>
-12시간 이상 GPU 사용이 없을 시 작업이 취소 될 수 있습니다.
+<aside class="warning"> <b>12시간 이상 GPU 사용이 없을 시 작업이 취소 될 수 있습니다. </b></aside>
+
 
 ### GPU 보유 현황
 AI 센터에서는 11개의 GPU 서버 (56 GPUs) 를 제공하고 있습니다. 
