@@ -130,6 +130,7 @@ srun --gres=gpu:a40:2 -p p3 --time=2-00:00:00 -J cv_lab1 --pty bash
 
 <img src="./images/alloc_wait.png" width="550px" title="할당 대기" alt="wait for Allocation"><br>사용자가 많을 경우, 위와 같이 할당대기중이라는 안내가 나옴.</img>
 
+<aside class="warning"> GPU를 할당 받기 전, login-n1 에서 파이썬 코드를 실행시키지 마세요. 전체 인원에게 피해가 가며, 해당 유저는 페널티를 받을 수 있습니다. </aside>
 
 ### 대기열 상태 확인
 <code>srun</code> 또는 <code>sbatch</code>로 신청한 자원이 이미 사용되고 있을경우, 대기열에 들어갑니다. 이때 대기열을 확인하고싶다면 우측 명령어를 사용하면 됩니다.
@@ -149,7 +150,7 @@ scontrol show job [JOB ID] | grep StartTime
 scontrol show job | grep -e JobName -e StartTime
 ```
 
-<img src="./images/squeue.PNG" width="550px" title="squeue 화면" alt="checking queues"><br>squeue 화면</img>
+<img src="./images/squeue.PNG" width="550px" title="squeue 화면" alt="checking queues"></img>
 
 # 심화 튜토리얼
 
@@ -204,7 +205,7 @@ ifconfig
 >위에서 복사한 ip주소를 <165.2**.***.***> 부분에 넣고 port번호는 10100~10109 중 하나로 설정
 
 ```shell
-jupyter-notebook --no-browser --ip=<165.2**.***.***> --port=<port number>
+jupyter-notebook --no-browser --ip=165.2**.***.*** --port=10108
 ```
 
 <aside class="warning">만약 port 번호를 10100으로 설정했는데 실행이 안될경우, ⭐숫자를 1씩 증가시켜가며⭐ 실행되는 port 번호를 사용하면 됩니다. 만약 모든 포트번호를 사용했는데 실행이 안되는 경우, 아래의 연락처로 연락주시면 감사하겠습니다.<br>문의처: 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr, 032-860-9472) </aside>
