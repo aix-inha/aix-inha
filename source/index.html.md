@@ -67,7 +67,7 @@ SSH 로그인을 통한 서버 접속 (Login Node) -> 코드 및 데이터 업�
 > 본인의 ID로 입력하여 SSH 연결하시길 바랍니다. 만약 본인의 ID가 "Gildong"이면,
 
 ```shell
-ssh Gildong@165.246.75.159
+ssh Gildong@165.xxx.xxx.xxx # IP 주소 정보를 모를 경우, 이메일 주세요.
 ```
 
 사용자는 SSH 연결을 통해 Login Node 에 접속한 후, Slurm 시스템에게 GPU 자원 할당을 신청 할 수 있습니다.
