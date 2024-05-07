@@ -228,7 +228,7 @@ jupyter-notebook --no-browser --ip=165.2**.***.*** --port=10108
 > Login node 접속 (port number : 22)
 
 ```shell
-ssh [본인의 ID]@165.246.75.159
+ssh [본인의 ID]@165.xxx.xxx.xxx
 ```
 <aside class="notice">
 <code>--cpus-per-task</code> option을 사용해서 할당받을 Cpu core의 개수를 지정할 수 있습니다. <br>
