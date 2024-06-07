@@ -138,6 +138,11 @@ srun --gres=gpu:a40:2 -p p3 --time=2-00:00:00 -J cv_lab1 --pty bash
 
 ### 대기열 상태 확인
 <code>srun</code> 또는 <code>sbatch</code>로 신청한 자원이 이미 사용되고 있을경우, 대기열에 들어갑니다. 이때 대기열을 확인하고싶다면 우측 명령어를 사용하면 됩니다.
+<br>
+- 신청 가능한 자원 개수 확인하기
+<img src="./images/checkForResource.jpg" title="show cmd" alt="show 관련 명령어"></img>
+<br> <code>show-"확인하고자 하는 node 이름"</code> 명령어로, 해당 node의 유휴자원 개수를 확인할 수 있습니다. Node이름은 a100, a40, a6000 3가지가 있습니다.
+
 > 신청한 작업의 ID를 squeue 명령어를 통해 확인하기(대기열 현황)
 
 ```shell
