@@ -97,6 +97,7 @@ sacctmgr show assoc format=User,Partition where user=`whoami`
 GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 </aside>
 
+
 > 파티션 p1의 사용자가 A100 GPU 2개를 1일 동안 요청하기
 
 ```shell
@@ -112,6 +113,11 @@ srun --gres=gpu:a6000:2 -p p2 --time=12:00:00 -J cv_lab1 -w sv4ka-n2 --pty bash
 
 ```shell
 srun --gres=gpu:a40:2 -p p3 --time=2-00:00:00 -J cv_lab1 --pty bash
+```
+
+> 파티션 p1의 사용자가 a6000 GPU를 1일동안 요청, Docker Container 이용 예시
+```shell
+srun --gres=gpu:a6000:1 -p p1 --time=1-00:00:00 --container-name=my-research-env --container-image=pytorch/pytorch:2.6.0-cuda12.4-cudnn9-runtime --pty bash
 ```
 
 로그인을 한 후, 명령어로 GPU 할당 요청이 가능합니다.<br/>
