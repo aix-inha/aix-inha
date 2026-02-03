@@ -78,12 +78,12 @@ ssh Gildong@165.xxx.xxx.xxx # IP 주소 정보를 모를 경우, 이메일 주�
 
 ## 코드 및 데이터 업로드
 파일 업로드는 본인 계정의 이름으로 된 폴더에 할 수 있습니다.<br/>
-파일 업로드는 GPU <b style="color:orange">자원을 할당 받지 않고도 가능</b>하며, GPU Node의 <u>로컬 디스크</u>를 사용할 경우 <b style="color:orange">CPU 자원만 할당</b>받아 사용하시면 됩니다.<br>
+파일 업로드는 GPU <b style="color:orange">자원을 할당 받지 않고도 가능합니다.<br>
 - 데이터 업로드는 <code>/shared/home/[본인 아이디]</code> 경로 아래에 하시면 됩니다.
 - 데이터 및 코드는 AI 센터의 NAS에 업로드됩니다.
 
 ## 자원 신청
-사용자는 원하는 시간, GPU 및 CPU 자원 등을 명시하여 요청할 수 있습니다. <strong style="color:coral">최대 7일</strong>의 사용 시간을 요청 할 수 있으며, 사용자들의 원활한 사용을 위해 AI센터에서는 사용 시간을 <b>모니터링</b>하고 있습니다. <br>
+사용자는 원하는 시간, GPU 및 CPU 자원 등을 명시하여 요청할 수 있습니다. <b>자원 요청 시 이메일을 기입하면, 자원을 할당받았을 때 이메일 알람을 받을 수 있습니다.</b> <strong style="color:coral">최대 7일</strong>의 사용 시간을 요청 할 수 있으며, 사용자들의 원활한 사용을 위해 AI센터에서는 사용 시간을 <b>모니터링</b>하고 있습니다. <br>
 지속적으로 자원 요청 정책을 지키지 않는 사용자의 경우, <strong style="color:crimson">작업의 취소 및 패널티</strong>가 부과 될 수 있습니다. <br>
 <br>
 
@@ -100,22 +100,22 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 > 파티션 p1의 사용자가 A100 GPU 2개를 1일 동안 요청하기
 
 ```shell
-srun --gres=gpu:a100:2 -p p1 --time=1-00:00:00 -J cv_lab1 --cpus-per-task=20 --pty bash
+srun --gres=gpu:a100:2 -p p1 --time=1-00:00:00 -J cv_lab1 --mail-type=ALL --mail-user=your.email@inha.edu --cpus-per-task=20 --pty bash
 ```
 > 파티션 p2의 사용자가 sv4ka-n2 노드의 A6000 GPU 2개를 12시간 동안 요청하기
 
 ```shell
-srun --gres=gpu:a6000:2 -p p2 --time=12:00:00 -J cv_lab1 -w sv4ka-n2 --pty bash
+srun --gres=gpu:a6000:2 -p p2 --time=12:00:00 -J cv_lab1 --mail-type=ALL --mail-user=your.email@inha.edu -w sv4ka-n2 --pty bash
 ```
 
 > 파티션 p3의 사용자가 A40 GPU 2개를 2일 동안 요청하기
 
 ```shell
-srun --gres=gpu:a40:2 -p p3 --time=2-00:00:00 -J cv_lab1 --pty bash
+srun --gres=gpu:a40:2 -p p3 --time=2-00:00:00 -J cv_lab1 --mail-type=ALL --mail-user=your.email@inha.edu --pty bash
 ```
 
 로그인을 한 후, 명령어로 GPU 할당 요청이 가능합니다.<br/>
-`srun --gres=gpu:<type>:<number> -w <node name> -p <partition> --time=<time> -J <jobname> --cpus-per-core <int> --pty bash`
+`srun --gres=gpu:<type>:<number> -w <node name> -p <partition> --time=<time> -J <jobname> --mail-type=ALL --mail-user=<email> --cpus-per-core <int> --pty bash`
 
 | 옵션 이름                | 구분      | 설명          | 상세                                                                              |
 |-----------------------|---------|-------------|---------------------------------------------------------------------------------|
@@ -125,6 +125,8 @@ srun --gres=gpu:a40:2 -p p3 --time=2-00:00:00 -J cv_lab1 --pty bash
 | `-J <jobname>`            | 작업 이름 설정 | 작업의 이름을 `<jobname>`으로 설정 |                                                                                      |
 | `--mem <memory size>`     | 메모리 설정  | 사용하고자 하는 memory 자원 크기를 설정 | `--mem 8G` 와 같이 설정할 수 있음.                                                      |
 | `-w <node name>`     | GPU 노드 설정  | 신청하고자 하는 노드 직접 지정  | `A100`: a100-n1, a100-n2, a100-n3, a100-n4 <br> `A6000`: sv4ka-n1, sv4ka-n2, sv4ka-n3, sv4ka-n4 <br> `A40`: sv8ka-n1, sv8ka-n2, sv8ka-n3 <br> (파티션별 신청 가능한 자원 상이 ※사용정책 참고)                                                     |
+| `--mail-type=ALL` | 메일 알림 설정 | 작업 상태(시작, 종료, 실패) 알림 수신 |  |
+| `--mail-user=<email>` | 메일 주소 설정 | 알림을 받을 이메일 주소 입력 | `your.email@example.com` (inha.edu, inha.ac.kr 도메인만 됩니다) |
 
 - 자원 할당이 되었을경우
 
