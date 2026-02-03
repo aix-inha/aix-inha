@@ -78,7 +78,7 @@ ssh Gildong@165.xxx.xxx.xxx # IP 주소 정보를 모를 경우, 이메일 주�
 
 ## 코드 및 데이터 업로드
 파일 업로드는 본인 계정의 이름으로 된 폴더에 할 수 있습니다.<br/>
-파일 업로드는 GPU <b style="color:orange">자원을 할당 받지 않고도 가능합니다.<br>
+파일 업로드는 GPU <b style="color:orange">자원을 할당 받지 않고도 가능합니다.</b><br>
 - 데이터 업로드는 <code>/shared/home/[본인 아이디]</code> 경로 아래에 하시면 됩니다.
 - 데이터 및 코드는 AI 센터의 NAS에 업로드됩니다.
 
