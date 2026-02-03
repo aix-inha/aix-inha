@@ -460,11 +460,11 @@ SSH 로그인을 통한 서버 접속 (Login Node) -&gt; 코드 및 데이터 �
 <img src="images/serverSSH-599e19ff.png" width="550px" title="ssh 연결화면" alt="ssh 연결화면"></img></p>
 <h2 id='08e9b81abe'>코드 및 데이터 업로드</h2>
 <p>파일 업로드는 본인 계정의 이름으로 된 폴더에 할 수 있습니다.<br/>
-파일 업로드는 GPU <b style="color:orange">자원을 할당 받지 않고도 가능</b>하며, GPU Node의 <u>로컬 디스크</u>를 사용할 경우 <b style="color:orange">CPU 자원만 할당</b>받아 사용하시면 됩니다.<br>
+파일 업로드는 GPU <b style="color:orange">자원을 할당 받지 않고도 가능합니다.<br>
 - 데이터 업로드는 <code>/shared/home/[본인 아이디]</code> 경로 아래에 하시면 됩니다.
 - 데이터 및 코드는 AI 센터의 NAS에 업로드됩니다.</p>
 <h2 id='c4d1c3a567'>자원 신청</h2>
-<p>사용자는 원하는 시간, GPU 및 CPU 자원 등을 명시하여 요청할 수 있습니다. <strong style="color:coral">최대 7일</strong>의 사용 시간을 요청 할 수 있으며, 사용자들의 원활한 사용을 위해 AI센터에서는 사용 시간을 <b>모니터링</b>하고 있습니다. <br>
+<p>사용자는 원하는 시간, GPU 및 CPU 자원 등을 명시하여 요청할 수 있습니다. <b>자원 요청 시 이메일을 기입하면, 자원을 할당받았을 때 이메일 알람을 받을 수 있습니다.</b> <strong style="color:coral">최대 7일</strong>의 사용 시간을 요청 할 수 있으며, 사용자들의 원활한 사용을 위해 AI센터에서는 사용 시간을 <b>모니터링</b>하고 있습니다. <br>
 지속적으로 자원 요청 정책을 지키지 않는 사용자의 경우, <strong style="color:crimson">작업의 취소 및 패널티</strong>가 부과 될 수 있습니다. <br>
 <br></p>
 
@@ -480,20 +480,20 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 <blockquote>
 <p>파티션 p1의 사용자가 A100 GPU 2개를 1일 동안 요청하기</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>srun <span class="nt">--gres</span><span class="o">=</span>gpu:a100:2 <span class="nt">-p</span> p1 <span class="nt">--time</span><span class="o">=</span>1-00:00:00 <span class="nt">-J</span> cv_lab1 <span class="nt">--cpus-per-task</span><span class="o">=</span>20 <span class="nt">--pty</span> bash
+<div class="highlight"><pre class="highlight shell tab-shell"><code>srun <span class="nt">--gres</span><span class="o">=</span>gpu:a100:2 <span class="nt">-p</span> p1 <span class="nt">--time</span><span class="o">=</span>1-00:00:00 <span class="nt">-J</span> cv_lab1 <span class="nt">--mail-type</span><span class="o">=</span>ALL <span class="nt">--mail-user</span><span class="o">=</span>your.email@inha.edu <span class="nt">--cpus-per-task</span><span class="o">=</span>20 <span class="nt">--pty</span> bash
 </code></pre></div>
 <blockquote>
 <p>파티션 p2의 사용자가 sv4ka-n2 노드의 A6000 GPU 2개를 12시간 동안 요청하기</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>srun <span class="nt">--gres</span><span class="o">=</span>gpu:a6000:2 <span class="nt">-p</span> p2 <span class="nt">--time</span><span class="o">=</span>12:00:00 <span class="nt">-J</span> cv_lab1 <span class="nt">-w</span> sv4ka-n2 <span class="nt">--pty</span> bash
+<div class="highlight"><pre class="highlight shell tab-shell"><code>srun <span class="nt">--gres</span><span class="o">=</span>gpu:a6000:2 <span class="nt">-p</span> p2 <span class="nt">--time</span><span class="o">=</span>12:00:00 <span class="nt">-J</span> cv_lab1 <span class="nt">--mail-type</span><span class="o">=</span>ALL <span class="nt">--mail-user</span><span class="o">=</span>your.email@inha.edu <span class="nt">-w</span> sv4ka-n2 <span class="nt">--pty</span> bash
 </code></pre></div>
 <blockquote>
 <p>파티션 p3의 사용자가 A40 GPU 2개를 2일 동안 요청하기</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>srun <span class="nt">--gres</span><span class="o">=</span>gpu:a40:2 <span class="nt">-p</span> p3 <span class="nt">--time</span><span class="o">=</span>2-00:00:00 <span class="nt">-J</span> cv_lab1 <span class="nt">--pty</span> bash
+<div class="highlight"><pre class="highlight shell tab-shell"><code>srun <span class="nt">--gres</span><span class="o">=</span>gpu:a40:2 <span class="nt">-p</span> p3 <span class="nt">--time</span><span class="o">=</span>2-00:00:00 <span class="nt">-J</span> cv_lab1 <span class="nt">--mail-type</span><span class="o">=</span>ALL <span class="nt">--mail-user</span><span class="o">=</span>your.email@inha.edu <span class="nt">--pty</span> bash
 </code></pre></div>
 <p>로그인을 한 후, 명령어로 GPU 할당 요청이 가능합니다.<br/>
-<code>srun --gres=gpu:&lt;type&gt;:&lt;number&gt; -w &lt;node name&gt; -p &lt;partition&gt; --time=&lt;time&gt; -J &lt;jobname&gt; --cpus-per-core &lt;int&gt; --pty bash</code></p>
+<code>srun --gres=gpu:&lt;type&gt;:&lt;number&gt; -w &lt;node name&gt; -p &lt;partition&gt; --time=&lt;time&gt; -J &lt;jobname&gt; --mail-type=ALL --mail-user=&lt;email&gt; --cpus-per-core &lt;int&gt; --pty bash</code></p>
 
 <table><thead>
 <tr>
@@ -538,6 +538,18 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 <td>GPU 노드 설정</td>
 <td>신청하고자 하는 노드 직접 지정</td>
 <td><code>A100</code>: a100-n1, a100-n2, a100-n3, a100-n4 <br> <code>A6000</code>: sv4ka-n1, sv4ka-n2, sv4ka-n3, sv4ka-n4 <br> <code>A40</code>: sv8ka-n1, sv8ka-n2, sv8ka-n3 <br> (파티션별 신청 가능한 자원 상이 ※사용정책 참고)</td>
+</tr>
+<tr>
+<td><code>--mail-type=ALL</code></td>
+<td>메일 알림 설정</td>
+<td>작업 상태(시작, 종료, 실패) 알림 수신</td>
+<td></td>
+</tr>
+<tr>
+<td><code>--mail-user=&lt;email&gt;</code></td>
+<td>메일 주소 설정</td>
+<td>알림을 받을 이메일 주소 입력</td>
+<td><code>your.email@example.com</code> (inha.edu, inha.ac.kr 도메인만 됩니다)</td>
 </tr>
 </tbody></table>
 
