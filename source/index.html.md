@@ -207,6 +207,10 @@ tmux kill-session -t <session number>
 
 ### JupyterHub란?
 
+<aside class="warning">
+더 이상 터미널에서 주피터노트북 사용은 지원하지 않습니다.
+</aside>
+
 <img src="./images/jupyterhub/image_1.png" width="550px" title="JupyterHub 소개" alt="JupyterHub 소개"></img>
 
 JupyterHub는 브라우저에서 GPU 서버에 접속해 **JupyterLab과 VS Code를 사용할 수 있는 플랫폼**입니다.
