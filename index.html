@@ -315,35 +315,35 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#fa255f0ccc" class="toc-h1 toc-link" data-title="소개">소개</a>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="소개">소개</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#system-overview" class="toc-h2 toc-link" data-title="System Overview">System Overview</a>
                   </li>
                   <li>
-                    <a href="#gpu" class="toc-h2 toc-link" data-title="GPU 보유 현황">GPU 보유 현황</a>
+                    <a href="#gpu-status" class="toc-h2 toc-link" data-title="GPU 보유 현황">GPU 보유 현황</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#6772c593e8" class="toc-h1 toc-link" data-title="사용 방법">사용 방법</a>
+            <a href="#usage" class="toc-h1 toc-link" data-title="사용 방법">사용 방법</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#4677f67d74" class="toc-h2 toc-link" data-title="사용 절차">사용 절차</a>
+                    <a href="#usage-steps" class="toc-h2 toc-link" data-title="사용 절차">사용 절차</a>
                   </li>
                   <li>
-                    <a href="#gpu-2" class="toc-h2 toc-link" data-title="GPU 서버 접속">GPU 서버 접속</a>
+                    <a href="#ssh-access" class="toc-h2 toc-link" data-title="GPU 서버 접속">GPU 서버 접속</a>
                   </li>
                   <li>
-                    <a href="#08e9b81abe" class="toc-h2 toc-link" data-title="코드 및 데이터 업로드">코드 및 데이터 업로드</a>
+                    <a href="#upload" class="toc-h2 toc-link" data-title="코드 및 데이터 업로드">코드 및 데이터 업로드</a>
                   </li>
                   <li>
-                    <a href="#c4d1c3a567" class="toc-h2 toc-link" data-title="자원 신청">자원 신청</a>
+                    <a href="#resource-request" class="toc-h2 toc-link" data-title="자원 신청">자원 신청</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#97ce792b38" class="toc-h1 toc-link" data-title="심화 튜토리얼">심화 튜토리얼</a>
+            <a href="#advanced-tutorial" class="toc-h1 toc-link" data-title="심화 튜토리얼">심화 튜토리얼</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#tmux" class="toc-h2 toc-link" data-title="tmux를 이용한 세션유지">tmux를 이용한 세션유지</a>
@@ -357,27 +357,30 @@
               </ul>
           </li>
           <li>
-            <a href="#a6aa210ad3" class="toc-h1 toc-link" data-title="개발 환경 구축">개발 환경 구축</a>
+            <a href="#dev-env" class="toc-h1 toc-link" data-title="개발 환경 구축">개발 환경 구축</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#miniconda" class="toc-h2 toc-link" data-title="miniconda 환경 설정">miniconda 환경 설정</a>
                   </li>
                   <li>
-                    <a href="#singulairty-container" class="toc-h2 toc-link" data-title="singulairty Container 활용">singulairty Container 활용</a>
+                    <a href="#singularity-container" class="toc-h2 toc-link" data-title="singularity Container 활용">singularity Container 활용</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#4adb650424" class="toc-h1 toc-link" data-title="사용정책">사용정책</a>
+            <a href="#policy" class="toc-h1 toc-link" data-title="사용정책">사용정책</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#d085b4587e" class="toc-h2 toc-link" data-title="파티션 정책">파티션 정책</a>
+                    <a href="#partition-policy" class="toc-h2 toc-link" data-title="파티션 정책">파티션 정책</a>
                   </li>
                   <li>
-                    <a href="#07970efef4" class="toc-h2 toc-link" data-title="컴퓨팅 자원 정책">컴퓨팅 자원 정책</a>
+                    <a href="#compute-policy" class="toc-h2 toc-link" data-title="컴퓨팅 자원 정책">컴퓨팅 자원 정책</a>
                   </li>
                   <li>
-                    <a href="#f127a65f44" class="toc-h2 toc-link" data-title="로컬 디스크 사용 정책">로컬 디스크 사용 정책</a>
+                    <a href="#disk-expansion" class="toc-h2 toc-link" data-title="저장 공간 증설 요청">저장 공간 증설 요청</a>
+                  </li>
+                  <li>
+                    <a href="#local-disk-policy" class="toc-h2 toc-link" data-title="로컬 디스크 사용 정책">로컬 디스크 사용 정책</a>
                   </li>
               </ul>
           </li>
@@ -391,7 +394,8 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='fa255f0ccc'>소개</h1>
+        <h1 id="introduction">소개</h1>
+
 <p>인하대학교 인공지능융합연구센터 (이하 ”AI 센터”)에 오신 것을 환영합니다. 저희 AI 센터는 최첨단 GPU 서버 센터를 구축하여 A100, A6000, A40 등의 고성능 컴퓨팅 자원을 인하대학교 학생 및 교수님들, 그리고 기업체 및 인천시민 여러분께 무상으로 제공하고 있습니다. 이를 통해 인공지능 연구와 개발에 필요한 모든 고성능 계산 작업을 지원하고자 합니다.
 <br/>작성된 튜토리얼을 통해 원활한 사용과 연구에 도움이 되기를 진심으로 바라겠습니다.</p>
 
@@ -409,7 +413,9 @@ AI 센터의 자원을 이용하시려면 먼저 <a href='https://aix.inha.ac.kr
 
 <p>자원이 모두 사용 중일 때는 대기를 해야하며, 자원이 확보될 시 Slurm이 대기하고 있던 사용자에게 할당해줍니다. <br/>
 <aside class="warning"> <b>10시간 이상 GPU 사용이 없을 시 작업이 취소 될 수 있습니다. (오전 00시 ~ 오전 07시 사이의 미사용은 고려하지 않음) </b></aside></p>
-<h3 id='gpu'>GPU 보유 현황</h3>
+
+<h3 id="gpu-status">GPU 보유 현황</h3>
+
 <p>AI 센터에서는 11개의 GPU 서버 (56 GPUs) 를 제공하고 있습니다. </p>
 
 <table><thead>
@@ -439,7 +445,11 @@ AI 센터의 자원을 이용하시려면 먼저 <a href='https://aix.inha.ac.kr
 <td>4</td>
 </tr>
 </tbody></table>
-<h1 id='6772c593e8'>사용 방법</h1><h3 id='4677f67d74'>사용 절차</h3>
+
+<h1 id="usage">사용 방법</h1>
+
+<h3 id="usage-steps">사용 절차</h3>
+
 <p>GPU 서버 사용 과정은 아래와 같습니다:<br/>
 SSH 로그인을 통한 서버 접속 (Login Node) -&gt; 코드 및 데이터 업로드 -&gt; GPU 자원 신청 -&gt; (환경 구축) -&gt; GPU 사용</p>
 
@@ -448,7 +458,9 @@ SSH 로그인을 통한 서버 접속 (Login Node) -&gt; 코드 및 데이터 �
 </ul>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GX4FgkJ2sRY?si=yDdse6TVn2HbKqlB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="padding-left: 30px;"></iframe>
-<h2 id='gpu-2'>GPU 서버 접속</h2>
+
+<h2 id="ssh-access">GPU 서버 접속</h2>
+
 <blockquote>
 <p>본인의 ID로 입력하여 SSH 연결하시길 바랍니다. 만약 본인의 ID가 &quot;Gildong&quot;이면,</p>
 </blockquote>
@@ -458,12 +470,16 @@ SSH 로그인을 통한 서버 접속 (Login Node) -&gt; 코드 및 데이터 �
 <br/> SSH 연결은 Windows PowerShell, Ubuntu Terminal, MobaXterm 등의 프로그램을 통해 사용 할 수 있습니다.
 <br>
 <img src="images/serverSSH-599e19ff.png" width="550px" title="ssh 연결화면" alt="ssh 연결화면"></img></p>
-<h2 id='08e9b81abe'>코드 및 데이터 업로드</h2>
+
+<h2 id="upload">코드 및 데이터 업로드</h2>
+
 <p>파일 업로드는 본인 계정의 이름으로 된 폴더에 할 수 있습니다.<br/>
 파일 업로드는 GPU <b style="color:orange">자원을 할당 받지 않고도 가능합니다.</b><br>
 - 데이터 업로드는 <code>/shared/home/[본인 아이디]</code> 경로 아래에 하시면 됩니다.
 - 데이터 및 코드는 AI 센터의 NAS에 업로드됩니다.</p>
-<h2 id='c4d1c3a567'>자원 신청</h2>
+
+<h2 id="resource-request">자원 신청</h2>
+
 <p>사용자는 원하는 시간, GPU 및 CPU 자원 등을 명시하여 요청할 수 있습니다. <b>자원 요청 시 이메일을 기입하면, 자원을 할당받았을 때 이메일 알람을 받을 수 있습니다.</b> <strong style="color:coral">최대 7일</strong>의 사용 시간을 요청 할 수 있으며, 사용자들의 원활한 사용을 위해 AI센터에서는 사용 시간을 <b>모니터링</b>하고 있습니다. <br>
 지속적으로 자원 요청 정책을 지키지 않는 사용자의 경우, <strong style="color:crimson">작업의 취소 및 패널티</strong>가 부과 될 수 있습니다. <br>
 <br></p>
@@ -566,7 +582,9 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 <p><img src="images/alloc_wait-a81dadb1.png" width="550px" title="할당 대기" alt="wait for Allocation"><br>사용자가 많을 경우, 위와 같이 할당대기중이라는 안내가 나옴.</img></p>
 
 <aside class="warning"> GPU를 할당 받기 전, login-n1 에서 파이썬 코드를 실행시키지 마세요. 전체 인원에게 피해가 가며, 해당 유저는 페널티를 받을 수 있습니다. </aside>
-<h3 id='095ccc3cbd'>대기열 상태 확인</h3>
+
+<h3 id="queue-status">대기열 상태 확인</h3>
+
 <p><code>srun</code> 또는 <code>sbatch</code>로 신청한 자원이 이미 사용되고 있을경우, 대기열에 들어갑니다. 이때 대기열을 확인하고싶다면 우측 명령어를 사용하면 됩니다.</p>
 
 <blockquote>
@@ -590,7 +608,9 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 - 신청 가능한 자원 개수 확인하기
 <img src="images/checkForResource-e714e8a7.jpg" title="show cmd" alt="show 관련 명령어"></img>
 <br> <code>show-&quot;확인하고자 하는 node 이름&quot;</code> 명령어로, 해당 node의 유휴자원 개수를 확인할 수 있습니다. Node이름은 a100, a40, a6000 3가지가 있습니다.</p>
-<h1 id='97ce792b38'>심화 튜토리얼</h1><h2 id='tmux'>tmux를 이용한 세션유지</h2>
+
+<h1 id="advanced-tutorial">심화 튜토리얼</h1>
+<h2 id='tmux'>tmux를 이용한 세션유지</h2>
 <p><code>srun</code> 명령어를 사용하여 자원을 받고나서 세션을 종료하면, 자원도 자동으로 반환됩니다. 이를 방지하고싶다면, <code>tmux</code> 또는 <code>screen</code>명령어로 세션을 유지할 수 있습니다.</p>
 
 <blockquote>
@@ -621,7 +641,9 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 <div class="highlight"><pre class="highlight shell tab-shell"><code>tmux kill-session <span class="nt">-t</span> &lt;session number&gt;
 </code></pre></div>
 <p><img src="images/tmux_ex-b6ecaa39.png" title="tmux cmd" alt="tmux 관련 명령어"></img></p>
-<h2 id='jupyterhub-gpu'>JupyterHub를 통한 GPU 서버 사용</h2><h3 id='jupyterhub'>JupyterHub란?</h3>
+<h2 id='jupyterhub-gpu'>JupyterHub를 통한 GPU 서버 사용</h2>
+<h3 id="jupyterhub-intro">JupyterHub란?</h3>
+
 <aside class="warning">
 더 이상 터미널에서 주피터노트북 사용은 지원하지 않습니다.
 </aside>
@@ -637,7 +659,9 @@ GPU 신청 전에, 자신의 파티션을 먼저 확인하길 바랍니다.
 로컬 VS Code의 Remote-SSH를 통한 컴퓨트 노드 직접 접속은 <b>운영 정책상 허용되지 않습니다.</b><br>
 VS Code를 사용하려면 JupyterHub에 접속하여 서버를 시작한 후, JupyterLab Launcher에서 <b>VS Code 아이콘</b>을 클릭하세요.
 </aside>
-<h3 id='os'>OS 업그레이드 안내</h3>
+
+<h3 id="os-upgrade">OS 업그레이드 안내</h3>
+
 <p>서버 OS를 <strong>Ubuntu 20.04 → 24.04</strong>로 업그레이드하였습니다.
 기존 데이터는 <code>/shared/home/(계정ID)/</code> 경로 그대로 유지됩니다.</p>
 
@@ -645,7 +669,9 @@ VS Code를 사용하려면 JupyterHub에 접속하여 서버를 시작한 후, J
 기존 conda 환경은 호환되지 않을 수 있으므로 새로 만드는 것을 권장합니다.<br>
 <code>conda</code> 또는 <code>uv</code> 중 편한 방식으로 환경을 구성해 주세요.
 </aside>
-<h3 id='jupyterhub-2'>JupyterHub 접속</h3>
+
+<h3 id="jupyterhub-access">JupyterHub 접속</h3>
+
 <p><strong>URL:</strong> <a href='https://aix-gpu.inha.ac.kr/' target="_blank">https://aix-gpu.inha.ac.kr/</a></p>
 
 <p><img src="images/jupyterhub/image_3-882da3db.png" width="550px" title="JupyterHub 로그인" alt="JupyterHub 로그인"></img></p>
@@ -662,7 +688,9 @@ VS Code를 사용하려면 JupyterHub에 접속하여 서버를 시작한 후, J
 <p><img src="images/jupyterhub/image_4_Home-32c2ae91.png" width="550px" title="Home 화면" alt="Home 화면"></img></p>
 
 <p>Named Server는 JupyterHub 내에서 여러 Slurm 잡을 이름으로 구분하여 독립적으로 관리하는 기능으로, 각 Named Server는 별도의 Slurm 잡으로 실행되며 GPU를 각각 할당받습니다.</p>
-<h3 id='e01e878bd4'>서버 생성 절차</h3>
+
+<h3 id="server-create">서버 생성 절차</h3>
+
 <p><strong>Step 1. Named Server 추가</strong></p>
 
 <ol>
@@ -777,7 +805,9 @@ VS Code를 사용하려면 JupyterHub에 접속하여 서버를 시작한 후, J
 </ol>
 
 <p><img src="images/jupyterhub/image_8_VSCodeUI-cc47f9e3.png" width="550px" title="VS Code UI" alt="VS Code UI"></img></p>
-<h3 id='gpu-3'>GPU 할당 확인</h3>
+
+<h3 id="gpu-check">GPU 할당 확인</h3>
+
 <blockquote>
 <p>JupyterLab 또는 VS Code의 터미널에서 GPU 할당 확인</p>
 </blockquote>
@@ -787,7 +817,9 @@ nvidia-smi                   <span class="c"># 할당받은 GPU만 표시됨</sp
 <p><img src="images/jupyterhub/image_GPU_check_VSCode-e43a4489.png" width="550px" title="VS Code GPU 확인" alt="VS Code GPU 확인"></img></p>
 
 <p><img src="images/jupyterhub/image_GPU_check_JupyterLab-bc0cfe07.png" width="550px" title="JupyterLab GPU 확인" alt="JupyterLab GPU 확인"></img></p>
-<h3 id='a2bc5fe0c0'>서버 종료</h3>
+
+<h3 id="server-stop">서버 종료</h3>
+
 <p>작업이 끝나면 반드시 서버를 종료하여 다른 사용자가 GPU를 사용할 수 있도록 합니다.</p>
 
 <ol>
@@ -828,7 +860,9 @@ Data를 불러온 후, GPU로 data를 전송할 때 전처리과정을 거치는
 <aside class="warning">
 할당시, GPU Node별 최대 할당가능한 core수 이상 지정하지 않도록 유의하세요.
 </aside>
-<h3 id='local'>local 디렉토리 생성 및 데이터 복사</h3>
+
+<h3 id="local-copy">local 디렉토리 생성 및 데이터 복사</h3>
+
 <p>만약 이전에 저장한 GPU Node에서 작업하고 싶다면, <code>-w [GPU node 이름]</code> option을 이용해서 지정할 수 있습니다.</p>
 
 <blockquote>
@@ -861,7 +895,9 @@ Data를 불러온 후, GPU로 data를 전송할 때 전처리과정을 거치는
 <li>Pytorch import 여부 확인 <br>
 <code> python3 </code> 입력 후, <code>import torch</code> 입력시 이상이 없는지 확인.</li>
 </ul>
-<h3 id='27b537c1c7'>작업 완료 후 결과물 이동방법</h3>
+
+<h3 id="result-move">작업 완료 후 결과물 이동방법</h3>
+
 <p>모든 GPU node의 Local Disk의 경로는 /raid 로 되어있습니다. 그리고 각 GPU node의 DISK용량은 약 3TB 이상(GPU node별 약간의 차이가 있음)입니다. <br>
 계정 당 <b>최대 300GB</b>를 사용 할 수 있으며, 초과 사용 시, 다른 사용자를 위해서 디렉토리의 데이터는 <strong style="color:red;">삭제</strong>될 수 있습니다.
 <aside class="warning">
@@ -891,9 +927,11 @@ Data를 불러온 후, GPU로 data를 전송할 때 전처리과정을 거치는
 사용중 문의사항이 있을 경우, 디스코드 혹은 아래의 메일로 연락주시면 감사드리겠습니다. <br>
 인하대학교 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr)
 </aside>
-<h1 id='a6aa210ad3'>개발 환경 구축</h1>
+
+<h1 id="dev-env">개발 환경 구축</h1>
+
 <p>현재 GPU 서버에서는 miniconda 환경과 singularity 환경을 지원하고 있습니다.
-<br>별도의 docker환경은 제공하지 않지만, <a href="#singulairty-container">singularity image 변환</a>을 통해 docker image를 사용하실 수 있습니다.</p>
+<br>별도의 docker환경은 제공하지 않지만, <a href="#singularity-container">singularity image 변환</a>을 통해 docker image를 사용하실 수 있습니다.</p>
 <h2 id='miniconda'>miniconda 환경 설정</h2>
 <blockquote>
 <p>설치 파일을 다운로드할 경로로 이동(to home directory)</p>
@@ -949,7 +987,7 @@ Data를 불러온 후, GPU로 data를 전송할 때 전처리과정을 거치는
 <p>환경변수 설정 반영</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nb">source</span> ~/.bashrc
-</code></pre></div><h2 id='singulairty-container'>singulairty Container 활용</h2>
+</code></pre></div><h2 id='singularity-container'>singularity Container 활용</h2>
 <aside class="notice">
 도커 이미지를 Singularity 이미지로 간편하게 변환하여 사용할 수 있습니다.
 </aside>
@@ -981,7 +1019,9 @@ Data를 불러온 후, GPU로 data를 전송할 때 전처리과정을 거치는
 <code>/shared/public/images</code> 경로에 Singularirty 이미지를 저장하지 마세요.
 본인계정의 home 경로에 저장하시길 부탁드립니다.
 </aside>
-<h3 id='docker-singularity-sif-docker-hub'>Docker 이미지를 Singularity SIF로 변환하기 - Docker Hub 사용편</h3>
+
+<h3 id="docker-to-sif-hub">Docker 이미지를 Singularity SIF로 변환하기 - Docker Hub 사용편</h3>
+
 <ol>
 <li><p>Docker 이미지 선택 : Docker hub에서 변환하고자 하는 Dokcer image의 url을 찾습니다.
 <br> 이때, 본인이 원하는 이미지가 docker hub에 없다면 업로드 할 수 있습니다(회원가입 필요).
@@ -1002,12 +1042,17 @@ Data를 불러온 후, GPU로 data를 전송할 때 전처리과정을 거치는
 <li>singularity build시, 시간이 오래걸릴 수 있습니다. 또한 singularity image파일을 저장할 경우 꼭 본인 계정의 home directory에 저장할 것을 부탁드립니다. (~/파일이름.sif) 
 <br><strong>/shared/public/images에 하지 않기</strong></li>
 </ul>
-<h3 id='docker-singularity-sif'>Docker 이미지를 Singularity SIF로 변환하기 - 로컬 이미지 사용편</h3>
+
+<h3 id="docker-to-sif-local">Docker 이미지를 Singularity SIF로 변환하기 - 로컬 이미지 사용편</h3>
+
 <ul>
 <li>Docker 이미지 저장</li>
 <li>Singularity 명령어 실행</li>
 </ul>
-<h1 id='4adb650424'>사용정책</h1><h2 id='d085b4587e'>파티션 정책</h2>
+<h1 id="policy">사용정책</h1>
+
+<h2 id="partition-policy">파티션 정책</h2>
+
 <table><thead>
 <tr>
 <th>구분</th>
@@ -1095,7 +1140,9 @@ Data를 불러온 후, GPU로 data를 전송할 때 전처리과정을 거치는
 <td style="text-align: center">LocalDisk 권장</td>
 </tr>
 </tbody></table>
-<h2 id='07970efef4'>컴퓨팅 자원 정책</h2>
+
+<h2 id="compute-policy">컴퓨팅 자원 정책</h2>
+
 <ul>
 <li>기본 정책</li>
 </ul>
@@ -1115,7 +1162,7 @@ Data를 불러온 후, GPU로 data를 전송할 때 전처리과정을 거치는
 <tr>
 <td>계정 당 저장 공간 용량 제한</td>
 <td><span style='background-color:#fff5b1; color:red'>100G</span></td>
-<td>- 추가 공간 필요 시 사유와 함께 요청</td>
+<td>- 추가 공간 필요 시 사유와 함께 요청 <br> (아래 <a href='#disk-expansion'>저장 공간 증설 요청</a> 참고)</td>
 </tr>
 <tr>
 <td>계정 당 최대 작업 개수</td>
@@ -1159,7 +1206,79 @@ Data를 불러온 후, GPU로 data를 전송할 때 전처리과정을 거치는
 <td>계정 당 100GB</td>
 </tr>
 </tbody></table>
-<h2 id='f127a65f44'>로컬 디스크 사용 정책</h2>
+
+<h2 id="disk-expansion">저장 공간 증설 요청</h2>
+
+<p>계정 당 기본 저장 공간(NAS <code>/shared/home/계정명</code>)은 <span style='background-color:#fff5b1; color:red'>100GB</span> 로 제한되어 있습니다. 추가 공간이 필요한 경우, 아래 양식의 각 항목을 채운 뒤 서버실 공식 이메일 <b>aix-server@inha.ac.kr</b> 로 보내주시면 사유 검토 후 증설해 드립니다.</p>
+
+<table><thead>
+<tr>
+<th>항목</th>
+<th>설명</th>
+<th>작성 예시</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>계정</td>
+<td>서버 로그인 계정명</td>
+<td><code>sujin</code></td>
+</tr>
+<tr>
+<td>신청자 이름</td>
+<td>신청자 본인 이름</td>
+<td>김수진</td>
+</tr>
+<tr>
+<td>학번</td>
+<td>학번 (교직원은 사번)</td>
+<td>12345678</td>
+</tr>
+<tr>
+<td>이메일</td>
+<td>연락 가능한 이메일</td>
+<td><code>sujin_k@inha.edu</code></td>
+</tr>
+<tr>
+<td>필요 용량</td>
+<td>추가로 필요한 용량</td>
+<td>500GB</td>
+</tr>
+<tr>
+<td>사용기간</td>
+<td>증설이 필요한 기간</td>
+<td>신청일 ~ 2026년 12월 31일</td>
+</tr>
+<tr>
+<td>증설 사유</td>
+<td>추가 공간이 필요한 이유</td>
+<td>비디오 데이터셋 용량이 커서 저장 공간 증설이 필요함</td>
+</tr>
+<tr>
+<td>사용 데이터셋</td>
+<td>사용할 데이터셋 이름</td>
+<td>EgoExo4D</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>아래 양식을 복사하여 작성 후 aix-server@inha.ac.kr 로 보내주세요</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>[인공지능융합연구센터 GPU 서버실 디스크 용량 증설 요청]
+계정:
+신청자 이름:
+학번:
+이메일:
+필요 용량:
+사용기간:
+증설 사유:
+사용 데이터셋:
+</code></pre></div>
+<aside class="notice">
+증설은 <b>사유 검토 후 승인</b>되며, 신청하신 용량·기간이 그대로 보장되지 않을 수 있습니다. 사용기간 종료 후에는 기본 용량(100GB)으로 환원될 수 있습니다.
+</aside>
+
+<h2 id="local-disk-policy">로컬 디스크 사용 정책</h2>
+
 <table><thead>
 <tr>
 <th>구분</th>
