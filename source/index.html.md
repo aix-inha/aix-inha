@@ -11,7 +11,7 @@ toc_footers:
   - Last updated on Jan 31
 
 includes:
-  - errors
+  - policy
 
 search: true
 
@@ -22,7 +22,7 @@ meta:
     content: Documentation for 인공지능융합연구센터
 ---
 
-# 소개
+<h1 id="introduction">소개</h1>
 
 인하대학교 인공지능융합연구센터 (이하 ”AI 센터”)에 오신 것을 환영합니다. 저희 AI 센터는 최첨단 GPU 서버 센터를 구축하여 A100, A6000, A40 등의 고성능 컴퓨팅 자원을 인하대학교 학생 및 교수님들, 그리고 기업체 및 인천시민 여러분께 무상으로 제공하고 있습니다. 이를 통해 인공지능 연구와 개발에 필요한 모든 고성능 계산 작업을 지원하고자 합니다.
 <br/>작성된 튜토리얼을 통해 원활한 사용과 연구에 도움이 되기를 진심으로 바라겠습니다.
@@ -44,7 +44,8 @@ Simple Linux Utility for Resource Management (이하 “Slurm”) 을 통해 GPU
 <aside class="warning"> <b>10시간 이상 GPU 사용이 없을 시 작업이 취소 될 수 있습니다. (오전 00시 ~ 오전 07시 사이의 미사용은 고려하지 않음) </b></aside>
 
 
-### GPU 보유 현황
+<h3 id="gpu-status">GPU 보유 현황</h3>
+
 AI 센터에서는 11개의 GPU 서버 (56 GPUs) 를 제공하고 있습니다. 
 
 | GPU 타입 | GPU 메모리 | GPU 서버 대수 | 서버 당 GPU 카드 개수 |
@@ -54,8 +55,10 @@ AI 센터에서는 11개의 GPU 서버 (56 GPUs) 를 제공하고 있습니다.
 | A6000    | 48 GB      | 4                     | 4             |
 
 
-# 사용 방법
-### 사용 절차
+<h1 id="usage">사용 방법</h1>
+
+<h3 id="usage-steps">사용 절차</h3>
+
 GPU 서버 사용 과정은 아래와 같습니다:<br/>
 SSH 로그인을 통한 서버 접속 (Login Node) -> 코드 및 데이터 업로드 -> GPU 자원 신청 -> (환경 구축) -> GPU 사용
 
@@ -63,7 +66,8 @@ SSH 로그인을 통한 서버 접속 (Login Node) -> 코드 및 데이터 업�
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GX4FgkJ2sRY?si=yDdse6TVn2HbKqlB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="padding-left: 30px;"></iframe>
 
-## GPU 서버 접속
+<h2 id="ssh-access">GPU 서버 접속</h2>
+
 > 본인의 ID로 입력하여 SSH 연결하시길 바랍니다. 만약 본인의 ID가 "Gildong"이면,
 
 ```shell
@@ -76,13 +80,15 @@ ssh Gildong@165.xxx.xxx.xxx # IP 주소 정보를 모를 경우, 이메일 주�
 <img src="./images/serverSSH.png" width="550px" title="ssh 연결화면" alt="ssh 연결화면"></img>
 
 
-## 코드 및 데이터 업로드
+<h2 id="upload">코드 및 데이터 업로드</h2>
+
 파일 업로드는 본인 계정의 이름으로 된 폴더에 할 수 있습니다.<br/>
 파일 업로드는 GPU <b style="color:orange">자원을 할당 받지 않고도 가능합니다.</b><br>
 - 데이터 업로드는 <code>/shared/home/[본인 아이디]</code> 경로 아래에 하시면 됩니다.
 - 데이터 및 코드는 AI 센터의 NAS에 업로드됩니다.
 
-## 자원 신청
+<h2 id="resource-request">자원 신청</h2>
+
 사용자는 원하는 시간, GPU 및 CPU 자원 등을 명시하여 요청할 수 있습니다. <b>자원 요청 시 이메일을 기입하면, 자원을 할당받았을 때 이메일 알람을 받을 수 있습니다.</b> <strong style="color:coral">최대 7일</strong>의 사용 시간을 요청 할 수 있으며, 사용자들의 원활한 사용을 위해 AI센터에서는 사용 시간을 <b>모니터링</b>하고 있습니다. <br>
 지속적으로 자원 요청 정책을 지키지 않는 사용자의 경우, <strong style="color:crimson">작업의 취소 및 패널티</strong>가 부과 될 수 있습니다. <br>
 <br>
@@ -138,7 +144,8 @@ srun --gres=gpu:a40:2 -p p3 --time=2-00:00:00 -J cv_lab1 --mail-type=ALL --mail-
 
 <aside class="warning"> GPU를 할당 받기 전, login-n1 에서 파이썬 코드를 실행시키지 마세요. 전체 인원에게 피해가 가며, 해당 유저는 페널티를 받을 수 있습니다. </aside>
 
-### 대기열 상태 확인
+<h3 id="queue-status">대기열 상태 확인</h3>
+
 <code>srun</code> 또는 <code>sbatch</code>로 신청한 자원이 이미 사용되고 있을경우, 대기열에 들어갑니다. 이때 대기열을 확인하고싶다면 우측 명령어를 사용하면 됩니다.
 
 > 신청한 작업의 ID를 squeue 명령어를 통해 확인하기(대기열 현황)
@@ -164,7 +171,7 @@ scontrol show job | grep -e JobName -e StartTime
 <img src="./images/checkForResource.jpg" title="show cmd" alt="show 관련 명령어"></img>
 <br> <code>show-"확인하고자 하는 node 이름"</code> 명령어로, 해당 node의 유휴자원 개수를 확인할 수 있습니다. Node이름은 a100, a40, a6000 3가지가 있습니다.
 
-# 심화 튜토리얼
+<h1 id="advanced-tutorial">심화 튜토리얼</h1>
 
 ## tmux를 이용한 세션유지
 <code>srun</code> 명령어를 사용하여 자원을 받고나서 세션을 종료하면, 자원도 자동으로 반환됩니다. 이를 방지하고싶다면, <code>tmux</code> 또는 <code>screen</code>명령어로 세션을 유지할 수 있습니다.
@@ -205,7 +212,7 @@ tmux kill-session -t <session number>
 
 ## JupyterHub를 통한 GPU 서버 사용
 
-### JupyterHub란?
+<h3 id="jupyterhub-intro">JupyterHub란?</h3>
 
 <aside class="warning">
 더 이상 터미널에서 주피터노트북 사용은 지원하지 않습니다.
@@ -223,7 +230,7 @@ JupyterHub는 브라우저에서 GPU 서버에 접속해 **JupyterLab과 VS Code
 VS Code를 사용하려면 JupyterHub에 접속하여 서버를 시작한 후, JupyterLab Launcher에서 <b>VS Code 아이콘</b>을 클릭하세요.
 </aside>
 
-### OS 업그레이드 안내
+<h3 id="os-upgrade">OS 업그레이드 안내</h3>
 
 서버 OS를 **Ubuntu 20.04 → 24.04**로 업그레이드하였습니다.
 기존 데이터는 `/shared/home/(계정ID)/` 경로 그대로 유지됩니다.
@@ -233,7 +240,7 @@ VS Code를 사용하려면 JupyterHub에 접속하여 서버를 시작한 후, J
 <code>conda</code> 또는 <code>uv</code> 중 편한 방식으로 환경을 구성해 주세요.
 </aside>
 
-### JupyterHub 접속
+<h3 id="jupyterhub-access">JupyterHub 접속</h3>
 
 **URL:** <a href='https://aix-gpu.inha.ac.kr/' target="_blank">https://aix-gpu.inha.ac.kr/</a>
 
@@ -250,7 +257,7 @@ VS Code를 사용하려면 JupyterHub에 접속하여 서버를 시작한 후, J
 
 Named Server는 JupyterHub 내에서 여러 Slurm 잡을 이름으로 구분하여 독립적으로 관리하는 기능으로, 각 Named Server는 별도의 Slurm 잡으로 실행되며 GPU를 각각 할당받습니다.
 
-### 서버 생성 절차
+<h3 id="server-create">서버 생성 절차</h3>
 
 **Step 1. Named Server 추가**
 
@@ -309,7 +316,7 @@ Named Server는 JupyterHub 내에서 여러 Slurm 잡을 이름으로 구분하�
 
 <img src="./images/jupyterhub/image_8_VSCodeUI.png" width="550px" title="VS Code UI" alt="VS Code UI"></img>
 
-### GPU 할당 확인
+<h3 id="gpu-check">GPU 할당 확인</h3>
 
 > JupyterLab 또는 VS Code의 터미널에서 GPU 할당 확인
 
@@ -322,7 +329,7 @@ nvidia-smi                   # 할당받은 GPU만 표시됨
 
 <img src="./images/jupyterhub/image_GPU_check_JupyterLab.png" width="550px" title="JupyterLab GPU 확인" alt="JupyterLab GPU 확인"></img>
 
-### 서버 종료
+<h3 id="server-stop">서버 종료</h3>
 
 작업이 끝나면 반드시 서버를 종료하여 다른 사용자가 GPU를 사용할 수 있도록 합니다.
 
@@ -362,7 +369,8 @@ Data를 불러온 후, GPU로 data를 전송할 때 전처리과정을 거치는
 할당시, GPU Node별 최대 할당가능한 core수 이상 지정하지 않도록 유의하세요.
 </aside>
 
-### local 디렉토리 생성 및 데이터 복사
+<h3 id="local-copy">local 디렉토리 생성 및 데이터 복사</h3>
+
 만약 이전에 저장한 GPU Node에서 작업하고 싶다면, <code>-w [GPU node 이름]</code> option을 이용해서 지정할 수 있습니다.
 
 > 할당받은 GPU Node 각각의 Local disk경로로 이동
@@ -398,7 +406,8 @@ cp /shared/public/images/<image name> /raid/<user name>
 - Pytorch import 여부 확인 <br>
 <code> python3 </code> 입력 후, <code>import torch</code> 입력시 이상이 없는지 확인.
 
-### 작업 완료 후 결과물 이동방법
+<h3 id="result-move">작업 완료 후 결과물 이동방법</h3>
+
 모든 GPU node의 Local Disk의 경로는 /raid 로 되어있습니다. 그리고 각 GPU node의 DISK용량은 약 3TB 이상(GPU node별 약간의 차이가 있음)입니다. <br>
 계정 당 <b>최대 300GB</b>를 사용 할 수 있으며, 초과 사용 시, 다른 사용자를 위해서 디렉토리의 데이터는 <strong style="color:red;">삭제</strong>될 수 있습니다.
 <aside class="warning">
@@ -427,9 +436,10 @@ cp /shared/public/images/<image name> /raid/<user name>
 인하대학교 인공지능융합연구센터 조병호 (bhjo12@inha.ac.kr)
 </aside>
 
-# 개발 환경 구축
+<h1 id="dev-env">개발 환경 구축</h1>
+
 현재 GPU 서버에서는 miniconda 환경과 singularity 환경을 지원하고 있습니다.
-<br>별도의 docker환경은 제공하지 않지만, [singularity image 변환](#singulairty-container)을 통해 docker image를 사용하실 수 있습니다.
+<br>별도의 docker환경은 제공하지 않지만, [singularity image 변환](#singularity-container)을 통해 docker image를 사용하실 수 있습니다.
 
 ## miniconda 환경 설정
 
@@ -491,7 +501,7 @@ export PATH=~/miniconda3/bin:$PATH
 source ~/.bashrc
 ```
 
-## singulairty Container 활용
+## singularity Container 활용
 <aside class="notice">
 도커 이미지를 Singularity 이미지로 간편하게 변환하여 사용할 수 있습니다.
 </aside>
@@ -526,7 +536,7 @@ exit
 본인계정의 home 경로에 저장하시길 부탁드립니다.
 </aside>
 
-### Docker 이미지를 Singularity SIF로 변환하기 - Docker Hub 사용편
+<h3 id="docker-to-sif-hub">Docker 이미지를 Singularity SIF로 변환하기 - Docker Hub 사용편</h3>
 
 1. Docker 이미지 선택 : Docker hub에서 변환하고자 하는 Dokcer image의 url을 찾습니다.
 <br> 이때, 본인이 원하는 이미지가 docker hub에 없다면 업로드 할 수 있습니다(회원가입 필요).
@@ -546,7 +556,7 @@ exit
 - singularity build시, 시간이 오래걸릴 수 있습니다. 또한 singularity image파일을 저장할 경우 꼭 본인 계정의 home directory에 저장할 것을 부탁드립니다. (~/파일이름.sif) 
 <br>**/shared/public/images에 하지 않기**
 
-### Docker 이미지를 Singularity SIF로 변환하기 - 로컬 이미지 사용편
+<h3 id="docker-to-sif-local">Docker 이미지를 Singularity SIF로 변환하기 - 로컬 이미지 사용편</h3>
 
 - Docker 이미지 저장
 - Singularity 명령어 실행
